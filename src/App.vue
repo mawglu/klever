@@ -1,28 +1,49 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <MainScrollSlider/>
+        <router-view/>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'App',
+        components: {
+            MainScrollSlider: () => import(/* webpackChunkName: "main-scroll-slider" */'./components/MainScrollSlider'),
+        }
+    }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+
+    $color-green: #D2FF57;
+    $color-pink: #F000FE;
+    $color-white: #FFFFFF;
+    $color-black: #161A25;
+    html,
+    body {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 80px;
+        line-height: 110%;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 60px;
+        line-height: 130%;
+        margin: 0;
+    }
+
+    .bg {
+        &-green {
+            background: $color-green;
+        }
+
+        &-black {
+            background: $color-black;
+        }
+    }
 </style>
