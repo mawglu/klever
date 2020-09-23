@@ -1,0 +1,25 @@
+@import "media_mixin";
+
+@mixin arrow {
+  width: 80px;
+  height: 80px;
+  background: url("/img/icon/swiper-arrow.svg") no-repeat center;
+  background-size: contain;
+  transition: all .3s ease-in-out;
+  margin: 0;
+  top: 55px;
+  &:hover {
+    background: url("/img/icon/swiper-arrow-hover.svg") no-repeat center;
+    background-size: contain;
+  }
+  &:focus {
+    outline: none;
+  }
+  @include _768 {
+    width: 60px;
+    height: 60px;
+    @include _767 {
+      top: 0;
+    }
+  }
+}

@@ -1,49 +1,76 @@
 <template>
     <div id="app">
-        <MainScrollSlider/>
-        <router-view/>
+        <transition v-bind="transitionProps" class="animate__animated">
+            <router-view/>
+        </transition>
     </div>
 </template>
 
 <script>
+    import 'bootstrap/dist/css/bootstrap.css'
+    import 'bootstrap-vue/dist/bootstrap-vue.css'
+
     export default {
         name: 'App',
-        components: {
-            MainScrollSlider: () => import(/* webpackChunkName: "main-scroll-slider" */'./components/MainScrollSlider'),
+        data() {
+            return {
+                transitionProps: {
+                    name: 'fade',
+                    mode: 'in-out',
+                }
+            }
+        },
+        mounted() {
+            this.$root.$on('change-animation-direction', this.changeTransitionProps);
+        },
+        methods: {
+            changeTransitionProps(arg = {}) {
+                console.log(arg);
+                if (typeof arg.direction !== "undefined") {
+                    switch (arg.direction) {
+                        case 'top':
+                            this.transitionProps = {
+                                name: 'anti-fade',
+                                mode: 'out-in',
+                            };
+                            break;
+                        case 'bottom':
+                            this.transitionProps = {
+                                name: 'fade',
+                                mode: 'in-out',
+                            };
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            },
         }
     }
 </script>
 
 <style lang="scss">
 
-    $color-green: #D2FF57;
-    $color-pink: #F000FE;
-    $color-white: #FFFFFF;
-    $color-black: #161A25;
-    html,
-    body {
-        margin: 0;
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: margin-top .5s;
     }
 
-    h1 {
-        font-size: 80px;
-        line-height: 110%;
-        margin: 0;
+    .fade-leave-to {
+        margin-top: -100vh;
     }
 
-    h2 {
-        font-size: 60px;
-        line-height: 130%;
-        margin: 0;
+    .anti-fade-enter {
+        margin-top: -100vh;
     }
 
-    .bg {
-        &-green {
-            background: $color-green;
-        }
-
-        &-black {
-            background: $color-black;
-        }
+    .anti-fade-enter-active,
+    .anti-fade-leave-active {
+        transition: margin-top .3s ease-in-out;
     }
+
+    .anti-fade-leave-to {
+        margin-top: 100vh;
+    }
+
 </style>
