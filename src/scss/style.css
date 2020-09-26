@@ -1,7 +1,25 @@
+html::-webkit-scrollbar {
+  width: 0;
+}
+html .h-vh-100 {
+  height: 100vh;
+}
+html .w-vw-100 {
+  width: 100vw;
+}
+html .container-fluid {
+  padding: 0;
+}
 html body {
   background: #161A25;
   color: #161A25;
   overflow-x: hidden;
+}
+html body a {
+  text-decoration: none;
+}
+html body a:hover {
+  text-decoration: none;
 }
 html h1 {
   font-weight: bold;
@@ -24,6 +42,9 @@ html h4 {
   line-height: 44px;
   color: #161A25;
 }
+html .text-gilroy {
+  font-family: "Gilroy", sans-serif;
+}
 html .text-black {
   color: #161A25;
 }
@@ -33,8 +54,29 @@ html .text-white {
 html .text-pink {
   color: #F000FE;
 }
+html .text-pink-liner {
+  background: linear-gradient(90deg, #F000FE 0%, #FC70FF 95.92%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 html .text-green {
   color: #D2FF57;
+}
+html .text-green-liner {
+  background: linear-gradient(90deg, #90FE00 0%, #DAFE00 95.92%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html .text-sm-10 {
+  font-size: 10px;
+  line-height: 180%;
+}
+html .text-lg-24 {
+  font-size: 24px;
+  line-height: 180%;
+}
+html .text-lt-02 {
+  letter-spacing: 0.2em;
 }
 html .bg-green {
   background: #D2FF57;
@@ -50,6 +92,212 @@ html .font-w-700 {
 }
 html .font-w-900 {
   font-weight: 900;
+}
+html .circle {
+  display: flex;
+  border-radius: 50%;
+}
+html .circle-white {
+  background: #FFFFFF;
+}
+html .circle-green {
+  background: #D2FF57;
+}
+html .circle-black {
+  background: #161A25;
+}
+html .circle-transparent {
+  background: transparent;
+}
+html .circle-green-br {
+  border: 1px solid #D2FF57;
+}
+html .circle-white-br {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+html .circle-90 {
+  width: 90px;
+  height: 90px;
+}
+html .circle-80 {
+  width: 80px;
+  height: 80px;
+}
+html .circle-60 {
+  width: 60px;
+  height: 60px;
+}
+html .ico-map {
+  width: 28px;
+  height: 40px;
+  background: url("/img/icon/map.svg") no-repeat center;
+  background-size: contain;
+}
+html .ico-phone {
+  width: 32px;
+  height: 32px;
+  background: url("/img/icon/phone.svg") no-repeat center;
+  background-size: contain;
+}
+html .underline {
+  position: relative;
+}
+html .underline-pink:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(270deg, #FB71FF 0%, #F000FE 100%);
+  transition: all 0.3s ease-in-out;
+}
+html .underline-pink:hover:after {
+  width: 100%;
+}
+html .underline-green:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #90FE00 0%, #DAFE00 95.92%);
+  transition: all 0.3s ease-in-out;
+}
+html .underline-green:hover:after {
+  width: 100%;
+}
+html .separator {
+  display: flex;
+  flex-wrap: wrap;
+}
+html .separator .text {
+  margin: auto 0 auto 50px;
+}
+html .separator .separator-line {
+  height: 2px;
+  width: 200px;
+  margin: auto 0 auto 120px;
+}
+html .separator-pink .separator-line {
+  background: linear-gradient(270deg, #FB71FF 0%, #F000FE 100%);
+}
+html .separator-green .separator-line {
+  background: linear-gradient(270deg, #DAFE01 0%, #91FE01 100%);
+}
+html .schedule {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+html .schedule-item {
+  display: flex;
+  position: relative;
+}
+html .schedule-item .text {
+  margin: 15px 0 auto -50px;
+}
+html .schedule-item .nubmer {
+  font-weight: bold;
+  font-size: 80px;
+  line-height: normal;
+  letter-spacing: 0.4em;
+  background: -webkit-linear-gradient(-50deg, #ffffff 0, rgba(22, 26, 37, 0) 100%, rgba(22, 26, 37, 0.7) 0);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+  color: #161A25;
+  opacity: 0.3;
+  margin: 0;
+}
+html .arrow-after {
+  position: relative;
+  padding: 0 22px 0 0;
+}
+html .arrow-after-pink:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: url("/img/icon/link-arrow-p.svg") no-repeat center;
+  background-size: auto;
+  position: absolute;
+  top: 6px;
+  right: 0;
+}
+html .arrow-after-green:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: url("/img/icon/link-arrow-g.svg") no-repeat center;
+  background-size: auto;
+  position: absolute;
+  top: 6px;
+  right: 0;
+}
+html .right-menu {
+  height: 100%;
+  max-width: 60px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50px;
+  bottom: 70px;
+  z-index: 1000;
+}
+html .right-menu .menu-item {
+  margin: 0 auto 30px auto;
+}
+html .right-menu .sharing {
+  margin: auto auto 0 auto;
+  cursor: pointer;
+}
+html .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: #FFFFFF;
+  opacity: 0.2;
+  margin: 0 24px 0 0;
+  transition: all 0.3s ease-in-out;
+}
+html .swiper-pagination-bullet:hover {
+  opacity: 0.5;
+}
+html .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+html .footer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 155px 118px 0 50px;
+  padding: 43px 0 53px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+html .footer-column {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto 0;
+  justify-content: space-between;
+}
+html .footer-column .slide-contact {
+  max-width: 100%;
+  margin: 0 0 0 auto;
+}
+html .footer-column .slide-contact .link:first-child {
+  margin: auto 50px auto 0;
+}
+html .footer .to-up {
+  cursor: pointer;
+}
+html .footer .to-up .circle {
+  transform: rotate(270deg);
+}
+html .footer .navbar {
+  padding: 0;
 }
 
 html .navbar {
@@ -188,6 +436,24 @@ html .navbar-nav .dropdown-item:hover {
   background: transparent;
   opacity: 0.4;
 }
+html .navbar-white .navbar-nav .nav-item .nav-link {
+  color: white;
+}
+html .navbar-white .navbar-nav .nav-item .dropdown-toggle:after {
+  content: "";
+  background: url("/img/icon/toggle-w.svg") no-repeat center;
+  background-size: contain;
+}
+html .navbar-white .navbar-nav:last-child {
+  border-left: 1px solid white;
+}
+html .navbar-white .navbar-nav:last-child .nav-item .nav-link {
+  padding: 0;
+  font-weight: 700;
+}
+html .navbar-white .navbar-nav .dropdown-item {
+  color: white;
+}
 html .page-item.item_2 h4 {
   max-width: 55%;
   margin: 25px 0 40px 0;
@@ -195,6 +461,9 @@ html .page-item.item_2 h4 {
 html .page-item.item_3 h4 {
   max-width: 37%;
   margin: 25px 0 50px 0;
+}
+html .page-item.item_4 h1 {
+  margin: 0 0 30px 0;
 }
 html .social {
   display: flex;
@@ -502,6 +771,20 @@ html .link {
   display: inline-flex;
   margin: auto 0 auto 0;
 }
+html .link-w {
+  color: #FFFFFF;
+}
+html .link-w .wa {
+  filter: invert(100%);
+  opacity: 0.5;
+}
+html .link-w .tg {
+  filter: invert(100%);
+  opacity: 0.5;
+}
+html .link-w.link-phone:before {
+  background: white;
+}
 @media (max-width: 767px) {
   html .link {
     margin: auto 0 15px 0;
@@ -563,6 +846,141 @@ html .link-phone i {
 }
 html .link-phone i:last-child {
   margin: auto 10px auto 4px;
+}
+html .contact-block {
+  display: flex;
+  flex-direction: column;
+}
+html .contact-block-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 auto 30px 0;
+}
+html .contact-block-item .text {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 44px;
+  color: #161A25;
+  margin: auto 0 auto 20px;
+}
+html .page-content-services h2 {
+  max-width: 55%;
+  margin: 40px 0 130px 210px;
+}
+html .page-content-services .right-menu {
+  max-height: 50vh;
+  top: 35%;
+}
+html .page-content-services .underline {
+  margin: 100px 0 0 210px;
+}
+html .page-content-services .swiper-container {
+  margin: 70px 0 40px 0;
+  padding: 0;
+  overflow: inherit;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+html .page-content-services .swiper-wrapper {
+  margin: 0 0 0 210px;
+}
+html .page-content-services .swiper-slide img {
+  max-width: 100%;
+  width: 100%;
+  max-height: 275px;
+  height: 100%;
+}
+html .page-content-services .swiper-pagination {
+  position: absolute;
+  z-index: 10;
+  top: auto;
+  bottom: 0;
+  left: 210px;
+  width: auto;
+}
+html .page-content-services .swiper-button-next {
+  width: 80px;
+  height: 80px;
+  background: url("/img/icon/swiper-arrow.svg") no-repeat center;
+  background-size: contain;
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+  top: 55px;
+  top: auto;
+  bottom: -40px;
+  right: 118px;
+}
+html .page-content-services .swiper-button-next:hover {
+  background: url("/img/icon/swiper-arrow-hover-g.svg") no-repeat center;
+  background-size: contain;
+}
+html .page-content-services .swiper-button-next:focus {
+  outline: none;
+}
+@media (max-width: 768px) {
+  html .page-content-services .swiper-button-next {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 768px) and (max-width: 767px) {
+  html .page-content-services .swiper-button-next {
+    top: 0;
+  }
+}
+@media (max-width: 1112px) {
+  html .page-content-services .swiper-button-next {
+    right: 15px;
+  }
+}
+@media (max-width: 1112px) and (max-width: 768px) {
+  html .page-content-services .swiper-button-next {
+    bottom: -30px;
+  }
+}
+html .page-content-services .swiper-button-prev {
+  width: 80px;
+  height: 80px;
+  background: url("/img/icon/swiper-arrow.svg") no-repeat center;
+  background-size: contain;
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+  top: 55px;
+  transform: rotate(180deg);
+  top: auto;
+  bottom: -40px;
+  left: auto;
+  right: 248px;
+}
+html .page-content-services .swiper-button-prev:hover {
+  background: url("/img/icon/swiper-arrow-hover-g.svg") no-repeat center;
+  background-size: contain;
+}
+html .page-content-services .swiper-button-prev:focus {
+  outline: none;
+}
+@media (max-width: 768px) {
+  html .page-content-services .swiper-button-prev {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 768px) and (max-width: 767px) {
+  html .page-content-services .swiper-button-prev {
+    top: 0;
+  }
+}
+@media (max-width: 1112px) {
+  html .page-content-services .swiper-button-prev {
+    right: 115px;
+  }
+}
+@media (max-width: 1112px) and (max-width: 768px) {
+  html .page-content-services .swiper-button-prev {
+    bottom: -30px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

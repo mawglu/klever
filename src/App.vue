@@ -50,14 +50,19 @@
 </script>
 
 <style lang="scss">
+    @import "./src/scss/style";
 
     .fade-enter-active,
     .fade-leave-active {
         transition: margin-top .5s;
     }
 
-    .fade-leave-to {
+    .fade-leave-active {
         margin-top: -100vh;
+    }
+
+    .fade-leave-to {
+        margin-top: 0;
     }
 
     .anti-fade-enter {

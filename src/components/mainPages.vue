@@ -1,14 +1,14 @@
 <template>
     <div @wheel="onwheel">
         <div class="bg-green">
-            <div class="page">
+            <div class="page container-fluid">
                 <div class="page-main" ref="headerSlider">
                     <b-row>
                         <b-col cols="12">
                             <b-navbar variant="faded" toggleable="lg" type="light">
                                 <b-navbar-brand href="/">
-                                    <img src="img/klever-logo.svg" alt="Klever studio">
-                                    <img src="img/klever-studio.svg" alt="Klever studio">
+                                    <img src="img/icon/klever-logo.svg" alt="Klever studio">
+                                    <img src="img/icon/klever-studio.svg" alt="Klever studio">
                                 </b-navbar-brand>
 
                                 <b-navbar-toggle target="nav-collapse"/>
@@ -83,10 +83,10 @@
                                     </div>
                                     <h1 class="my-auto">Рекламное<br> агентство</h1>
                                     <div class="slide-contact">
-                                        <a href="#" class="link link-page">
+                                        <router-link to="/season" class="link link-page">
                                             <i class="pointer"/>
                                             Сезонные предложения
-                                        </a>
+                                        </router-link>
                                         <a href="#" class="link link-mail">E: andrey@klever-studio.ru</a>
                                         <a href="#" class="link link-phone">
                                             <i class="wa"/>
@@ -170,11 +170,38 @@
                                     </div>
                                 </swiper-slide>
                                 <swiper-slide class="page-item item_4">
-                                    <h1 class="text-black">
-                                        Slide 4
-                                    </h1>
+                                    <h1>Контакты</h1>
+                                    <div class="slide-contact-block">
+                                        <div class="contact-block-item">
+                                            <div class="circle circle-white circle-80">
+                                                <i class="ico ico-map m-auto"/>
+                                            </div>
+                                            <div class="text">
+                                                Озерковская набережная 24/22 стр 2
+                                            </div>
+                                        </div>
+                                        <a class="contact-block-item" href="tel:+79263397547">
+                                            <div class="circle circle-white circle-80">
+                                                <i class="ico ico-phone m-auto"/>
+                                            </div>
+                                            <div class="text">
+                                                +7 (926) 339 75 47
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="slide-contact">
+                                        <a href="#" class="link link-page">
+                                            <i class="pointer"/>
+                                            Карта
+                                        </a>
+                                        <a href="#" class="link link-mail">E: andrey@klever-studio.ru</a>
+                                        <a href="#" class="link link-phone">
+                                            <i class="wa"/>
+                                            <i class="tg"/>
+                                            T: +7 (926) 339 75 47
+                                        </a>
+                                    </div>
                                 </swiper-slide>
-
                                 <div class="swiper-pagination" slot="pagination"></div>
                                 <div class="swiper-button-prev" slot="button-prev"></div>
                                 <div class="swiper-button-next" slot="button-next"></div>
@@ -214,7 +241,7 @@
                 ],
                 yPath: [ // ссылки по вертикали
                     {path: 'season'},
-                    {path: 'services'},
+                    {path: 'services-polygraphy'},
                 ],
                 swiperOptions: {
                     pagination: {
@@ -266,39 +293,39 @@
                     this.$refs.headerSlider.classList.add('page-contacts');
                 }
             },
-            // onwheel(ev) {
-            // console.log('mainPages onWheel is started');
-            // const deltaY = ev.deltaY;
+            onwheel(ev) {
+            console.log('mainPages onWheel is started');
+            const deltaY = ev.deltaY;
 
-            // switch (this.currentSlideNum) {
-            //     case 0:
-            //         if (deltaY > 0) {
-            //
-            //             this.$root.$emit('change-animation-direction', {
-            //                 direction: 'bottom',
-            //             });
-            //
-            //             if (this.$route.name !== 'season') {
-            //                 this.$router.push('season');
-            //             }
-            //         }
-            //         break;
-            //     case 1:
-            //         if (deltaY > 0) {
-            //             if (this.$route.path !== '/about/details') {
-            //                 this.$router.push('/about/details');
-            //             }
-            //         }
-            //         break;
-            //     case 2:
-            //         break;
-            //     case 3:
-            //         break;
-            //     default:
-            //         break;
-            // }
-            // console.log('mainPages onWheel is ended');
-            // }
+            switch (this.currentSlideNum) {
+                case 0:
+                    if (deltaY > 0) {
+
+                        this.$root.$emit('change-animation-direction', {
+                            direction: 'bottom',
+                        });
+
+                        if (this.$route.name !== 'season') {
+                            this.$router.push('season');
+                        }
+                    }
+                    break;
+                case 1:
+                    if (deltaY > 0) {
+                        if (this.$route.path !== '/about/details') {
+                            this.$router.push('/about/details');
+                        }
+                    }
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    break;
+            }
+            console.log('mainPages onWheel is ended');
+            }
         }
     }
 
@@ -310,6 +337,7 @@
     .page {
         background: url("/img/blob.png") no-repeat right 0 bottom 0;
         height: 100vh;
+        overflow: hidden;
         @include _768 {
             height: 100%;
         }

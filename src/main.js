@@ -23,9 +23,14 @@ const router = new VueRouter({
             component: () => import('./components/seasonPage'),
         },
         {
-            path: '/services',
-            name: 'services',
-            component: () => import('./components/servicesPage')
+            path: '/services-polygraphy',
+            name: 'services-polygraphy',
+            component: () => import('./components/servicesPolygraphyPage')
+        },
+        {
+            path: '/services-souvenirs',
+            name: 'services-souvenirs',
+            component: () => import('./components/servicesSouvenirsPage')
         },
         {
             path: '/about',

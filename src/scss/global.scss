@@ -8,10 +8,38 @@ $color-black: #161A25;
 
 
 html {
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .h {
+    &-vh-100 {
+      height: 100vh;
+    }
+  }
+
+  .w {
+    &-vw-100 {
+      width: 100vw;
+    }
+  }
+
+  .container-fluid {
+    padding: 0;
+  }
+
   body {
     background: $color-black;
     color: $color-black;
     overflow-x: hidden;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   h1 {
@@ -28,6 +56,7 @@ html {
     font-size: 60px;
     line-height: 150%;
   }
+
   h4 {
     font-weight: 500;
     font-size: 24px;
@@ -36,6 +65,10 @@ html {
   }
 
   .text {
+    &-gilroy {
+      font-family: 'Gilroy', sans-serif;
+    }
+
     &-black {
       color: $color-black;
     }
@@ -46,10 +79,36 @@ html {
 
     &-pink {
       color: $color-pink;
+
+      &-liner {
+        background: linear-gradient(90deg, #F000FE 0%, #FC70FF 95.92%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
 
     &-green {
       color: $color-green;
+
+      &-liner {
+        background: linear-gradient(90deg, #90FE00 0%, #DAFE00 95.92%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    &-sm-10 {
+      font-size: 10px;
+      line-height: 180%;
+    }
+
+    &-lg-24 {
+      font-size: 24px;
+      line-height: 180%;
+    }
+
+    &-lt-02 {
+      letter-spacing: 0.2em;
     }
   }
 
@@ -74,6 +133,280 @@ html {
 
     &-w-900 {
       font-weight: 900;
+    }
+  }
+
+  .circle {
+    display: flex;
+    border-radius: 50%;
+
+    &-white {
+      background: #FFFFFF;
+    }
+
+    &-green {
+      background: $color-green;
+    }
+
+    &-black {
+      background: $color-black;
+    }
+
+    &-transparent {
+      background: transparent;
+    }
+
+    &-green-br {
+      border: 1px solid $color-green;
+    }
+
+    &-white-br {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    &-90 {
+      width: 90px;
+      height: 90px;
+    }
+
+    &-80 {
+      width: 80px;
+      height: 80px;
+    }
+
+    &-60 {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .ico {
+    &-map {
+      width: 28px;
+      height: 40px;
+      background: url("/img/icon/map.svg") no-repeat center;
+      background-size: contain;
+    }
+
+    &-phone {
+      width: 32px;
+      height: 32px;
+      background: url("/img/icon/phone.svg") no-repeat center;
+      background-size: contain;
+    }
+  }
+
+  .underline {
+    position: relative;
+
+    &-pink {
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(270deg, #FB71FF 0%, #F000FE 100%);
+        transition: all .3s ease-in-out;
+      }
+
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+
+    &-green {
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #90FE00 0%, #DAFE00 95.92%);
+        transition: all .3s ease-in-out;
+      }
+
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .separator {
+    display: flex;
+    flex-wrap: wrap;
+
+    .text {
+      margin: auto 0 auto 50px;
+    }
+
+    .separator-line {
+      height: 2px;
+      width: 200px;
+      margin: auto 0 auto 120px;
+    }
+
+    &-pink {
+      .separator-line {
+        background: linear-gradient(270deg, #FB71FF 0%, #F000FE 100%);
+      }
+    }
+
+    &-green {
+      .separator-line {
+        background: linear-gradient(270deg, #DAFE01 0%, #91FE01 100%);
+      }
+    }
+  }
+
+  .schedule {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &-item {
+      display: flex;
+      position: relative;
+
+      .text {
+        margin: 15px 0 auto -50px;
+      }
+
+      .nubmer {
+        font-weight: bold;
+        font-size: 80px;
+        line-height: normal;
+        letter-spacing: 0.4em;
+        background: -webkit-linear-gradient(-50deg, #ffffff 0, rgba(22, 26, 37, 0) 100%, rgba(22, 26, 37, 0.7) 0);
+        -webkit-background-clip: text;
+        -webkit-text-stroke: 4px transparent;
+        color: $color-black;
+        opacity: 0.3;
+        margin: 0;
+      }
+    }
+  }
+
+  .arrow-after {
+    position: relative;
+    padding: 0 22px 0 0;
+
+    &-pink {
+      &:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: url("/img/icon/link-arrow-p.svg") no-repeat center;
+        background-size: auto;
+        position: absolute;
+        top: 6px;
+        right: 0;
+      }
+    }
+
+    &-green {
+      &:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: url("/img/icon/link-arrow-g.svg") no-repeat center;
+        background-size: auto;
+        position: absolute;
+        top: 6px;
+        right: 0;
+      }
+    }
+  }
+
+  .right-menu {
+    height: 100%;
+    max-width: 60px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50px;
+    bottom: 70px;
+    z-index: 1000;
+
+    .menu-item {
+      margin: 0 auto 30px auto;
+    }
+
+    .sharing {
+      margin: auto auto 0 auto;
+      cursor: pointer;
+    }
+  }
+
+  .swiper {
+    &-pagination {
+      &-bullet {
+        width: 6px;
+        height: 6px;
+        background: #FFFFFF;
+        opacity: 0.2;
+        margin: 0 24px 0 0;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        &-active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .footer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 155px 118px 0 50px;
+    padding: 43px 0 53px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);;
+
+    &-column {
+      width: 50%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      margin: auto 0;
+      justify-content: space-between;
+
+      .slide-contact {
+        max-width: 100%;
+        margin: 0 0 0 auto;
+
+        .link {
+          &:first-child {
+            margin: auto 50px auto 0;
+          }
+        }
+      }
+    }
+
+    .to-up {
+      cursor: pointer;
+
+      .circle {
+        transform: rotate(270deg);
+      }
+    }
+
+    .navbar {
+      padding: 0;
     }
   }
 }
