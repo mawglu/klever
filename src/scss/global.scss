@@ -40,6 +40,17 @@ html {
         text-decoration: none;
       }
     }
+
+    .btn,
+    button {
+      outline: none;
+
+      &:focus,
+      &:hover {
+        outline: none;
+        box-shadow: none;
+      }
+    }
   }
 
   h1 {
@@ -102,6 +113,16 @@ html {
       line-height: 180%;
     }
 
+    &-lg-18 {
+      font-size: 18px;
+      line-height: 150%;
+    }
+
+    &_lg-20 {
+      font-size: 20px;
+      line-height: 150%;
+    }
+
     &-lg-24 {
       font-size: 24px;
       line-height: 180%;
@@ -124,6 +145,10 @@ html {
 
   .font {
     &-w-500 {
+      font-weight: 500;
+    }
+
+    &-w-600 {
       font-weight: 500;
     }
 
@@ -162,6 +187,10 @@ html {
 
     &-white-br {
       border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    &-gray-br {
+      border: 1px solid rgba(22, 26, 37, 0.2);
     }
 
     &-90 {
@@ -407,6 +436,106 @@ html {
 
     .navbar {
       padding: 0;
+    }
+  }
+
+  .portfolio-modal {
+    .modal-dialog {
+      max-width: 100%;
+      height: 100vh;
+      margin: auto;
+
+      .modal-content {
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        background: $color-black;
+
+        .modal-body {
+          padding: 90px 120px 86px 0;
+
+          .swiper {
+            &-container {
+              height: 100%;
+              padding: 0 0 0 190px;
+              margin: 0;
+            }
+
+            &-slide {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              opacity: 0;
+              transition: all .3s ease-in-out;
+
+              &-active {
+                opacity: 1;
+              }
+
+              .column {
+                &:first-child {
+                  width: 67%;
+                  margin: 0 30px 0 0;
+
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+
+                &:last-child {
+                  width: 30%;
+                  padding: 33px 0 0 0;
+                  border-top: 3px solid $color-green;
+
+                  .title {
+                    margin: 0 0 20px 0;
+                  }
+                }
+              }
+            }
+
+            &-pagination {
+              color: rgba(255, 255, 255, 0.3);
+              top: auto;
+              bottom: 0;
+              left: 60px;
+
+              &-current {
+                color: $color-white;
+              }
+
+              &-total {
+                color: rgba(255, 255, 255, 0.3);
+              }
+            }
+
+            &-button-next {
+              @include arrow_green;
+
+              left: 50px;
+              right: auto;
+              top: 35%;
+            }
+
+            &-button-prev {
+              @include arrow_green;
+              transform: rotate(180deg);
+
+              top: 53%;
+              left: 50px;
+              right: auto;
+            }
+          }
+
+          .btn-modal {
+            padding: 0;
+            position: absolute;
+            left: 50px;
+            z-index: 10;
+          }
+        }
+      }
     }
   }
 }

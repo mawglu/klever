@@ -93,8 +93,8 @@
                 <b-col cols="12">
                     <b-navbar variant="faded" toggleable="lg" type="white">
                         <b-navbar-brand href="/">
-                            <img src="img/icon/klever-logo-opacity.svg" alt="Klever studio">
-                            <img src="img/icon/klever-studio-w.svg" alt="Klever studio">
+                            <img src="/img/icon/icon-logo-opacity.svg" alt="Klever studio">
+                            <img src="/img/icon/icon-studio-w.svg" alt="Klever studio">
                         </b-navbar-brand>
 
                         <b-navbar-toggle target="nav-collapse"/>
@@ -120,7 +120,7 @@
                 <b-col cols="12">
                     <div class="d-flex flex-wrap">
                         <div class="underline underline-pink">
-                            <a href="https://klever-print.ru/" referrerpolicy="no-referrer" target="_blank"
+                            <a href="https:/-print.ru/" referrerpolicy="no-referrer" target="_blank"
                                class="text text-lg-24 text-lt-02 text-green-liner font-w-900 text-uppercase arrow-after arrow-after-green">
                                 Klever-print.ru
                             </a>
@@ -173,22 +173,22 @@
                             :options="swiperOptions"
                     >
                         <swiper-slide>
-                            <img src="/img/service-slide-1.png">
+                            <img  src="/img/service-slide-1.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img src="/img/service-slide-2.png">
+                            <img  src="/img/service-slide-2.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img src="/img/service-slide-3.png">
+                            <img  src="/img/service-slide-3.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img src="/img/service-slide-1.png">
+                            <img  src="/img/service-slide-1.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img src="/img/service-slide-2.png">
+                            <img  src="/img/service-slide-2.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img src="/img/service-slide-3.png">
+                            <img  src="/img/service-slide-3.png">
                         </swiper-slide>
                         <div class="swiper-pagination" slot="pagination"></div>
                         <div class="swiper-button-prev" slot="button-prev"></div>
@@ -211,8 +211,8 @@
                 <div class="footer-logo my-auto">
                     <b-navbar variant="faded" toggleable="lg" type="light">
                         <b-navbar-brand href="/">
-                            <img src="img/icon/klever-logo-w.svg" alt="Klever studio">
-                            <img src="img/icon/klever-studio-w.svg" alt="Klever studio">
+                            <img src="/img/icon-logo-w.svg" alt="Klever studio">
+                            <img src="/img/icon-studio-w.svg" alt="Klever studio">
                         </b-navbar-brand>
                     </b-navbar>
                 </div>
@@ -293,7 +293,7 @@
 
     .page-content {
         &-services {
-            background: url("/img/services-bg-2.png") no-repeat right top;
+            background:  url("/img/services-bg-2.png") no-repeat right top;
             background-size: 70%;
 
             .schedule {

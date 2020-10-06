@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import {BootstrapVue, IconsPlugin} from 'bootstrap-vue'
+import {BModal, BootstrapVue,} from 'bootstrap-vue'
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
-Vue.use(BootstrapVue);
-Vue.use(IconsPlugin);
+Vue.use(BootstrapVue, BModal);
 
 const router = new VueRouter({
     mode: 'history',
@@ -46,6 +45,11 @@ const router = new VueRouter({
             path: '/portfolio',
             name: 'main-portfolio',
             component: () => import('./components/mainPages')
+        },
+        {
+            path: '/portfolio/for-clients',
+            name: 'for-clients',
+            component: () => import('./components/portfolioPages')
         },
         {
             path: '/contacts',

@@ -57,12 +57,8 @@
         transition: margin-top .5s;
     }
 
-    .fade-leave-active {
-        margin-top: -100vh;
-    }
-
     .fade-leave-to {
-        margin-top: 0;
+        margin-top: -100vh;
     }
 
     .anti-fade-enter {

@@ -21,6 +21,16 @@ html body a {
 html body a:hover {
   text-decoration: none;
 }
+html body .btn,
+html body button {
+  outline: none;
+}
+html body .btn:focus, html body .btn:hover,
+html body button:focus,
+html body button:hover {
+  outline: none;
+  box-shadow: none;
+}
 html h1 {
   font-weight: bold;
   font-size: 80px;
@@ -71,6 +81,14 @@ html .text-sm-10 {
   font-size: 10px;
   line-height: 180%;
 }
+html .text-lg-18 {
+  font-size: 18px;
+  line-height: 150%;
+}
+html .text_lg-20 {
+  font-size: 20px;
+  line-height: 150%;
+}
 html .text-lg-24 {
   font-size: 24px;
   line-height: 180%;
@@ -85,6 +103,9 @@ html .bg-black {
   background: #161A25;
 }
 html .font-w-500 {
+  font-weight: 500;
+}
+html .font-w-600 {
   font-weight: 500;
 }
 html .font-w-700 {
@@ -114,6 +135,9 @@ html .circle-green-br {
 }
 html .circle-white-br {
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+html .circle-gray-br {
+  border: 1px solid rgba(22, 26, 37, 0.2);
 }
 html .circle-90 {
   width: 90px;
@@ -298,6 +322,130 @@ html .footer .to-up .circle {
 }
 html .footer .navbar {
   padding: 0;
+}
+html .portfolio-modal .modal-dialog {
+  max-width: 100%;
+  height: 100vh;
+  margin: auto;
+}
+html .portfolio-modal .modal-dialog .modal-content {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  background: #161A25;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body {
+  padding: 90px 120px 86px 0;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-container {
+  height: 100%;
+  padding: 0 0 0 190px;
+  margin: 0;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-slide {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-slide-active {
+  opacity: 1;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-slide .column:first-child {
+  width: 67%;
+  margin: 0 30px 0 0;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-slide .column:first-child img {
+  width: 100%;
+  height: 100%;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-slide .column:last-child {
+  width: 30%;
+  padding: 33px 0 0 0;
+  border-top: 3px solid #D2FF57;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-slide .column:last-child .title {
+  margin: 0 0 20px 0;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-pagination {
+  color: rgba(255, 255, 255, 0.3);
+  top: auto;
+  bottom: 0;
+  left: 60px;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-pagination-current {
+  color: #FFFFFF;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-pagination-total {
+  color: rgba(255, 255, 255, 0.3);
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-next {
+  width: 80px;
+  height: 80px;
+  background: url("/img/icon/swiper-arrow.svg") no-repeat center;
+  background-size: contain;
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+  top: 55px;
+  left: 50px;
+  right: auto;
+  top: 35%;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-next:hover {
+  background: url("/img/icon/swiper-arrow-hover-g.svg") no-repeat center;
+  background-size: contain;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-next:focus {
+  outline: none;
+}
+@media (max-width: 768px) {
+  html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-next {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 768px) and (max-width: 767px) {
+  html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-next {
+    top: 0;
+  }
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-prev {
+  width: 80px;
+  height: 80px;
+  background: url("/img/icon/swiper-arrow.svg") no-repeat center;
+  background-size: contain;
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+  top: 55px;
+  transform: rotate(180deg);
+  top: 53%;
+  left: 50px;
+  right: auto;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-prev:hover {
+  background: url("/img/icon/swiper-arrow-hover-g.svg") no-repeat center;
+  background-size: contain;
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-prev:focus {
+  outline: none;
+}
+@media (max-width: 768px) {
+  html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-prev {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 768px) and (max-width: 767px) {
+  html .portfolio-modal .modal-dialog .modal-content .modal-body .swiper-button-prev {
+    top: 0;
+  }
+}
+html .portfolio-modal .modal-dialog .modal-content .modal-body .btn-modal {
+  padding: 0;
+  position: absolute;
+  left: 50px;
+  z-index: 10;
 }
 
 html .navbar {
@@ -689,20 +837,7 @@ html .slide-menu-item {
     margin: 0 15px auto 0;
   }
 }
-html .slide-menu-item .image {
-  width: 90px;
-  height: 90px;
-  display: flex;
-  background: white;
-  border-radius: 50%;
-}
-@media (max-width: 768px) {
-  html .slide-menu-item .image {
-    width: 70px;
-    height: 70px;
-  }
-}
-html .slide-menu-item .image img {
+html .slide-menu-item svg {
   margin: auto;
   max-width: 100%;
   height: auto;

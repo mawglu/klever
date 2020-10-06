@@ -21,8 +21,8 @@
                 <b-col cols="12">
                     <b-navbar variant="faded" toggleable="lg" type="white">
                         <b-navbar-brand href="/">
-                            <img src="img/icon/klever-logo-opacity.svg" alt="Klever studio">
-                            <img src="img/icon/klever-studio-w.svg" alt="Klever studio">
+                            <img src="/img/icon/icon-logo-opacity.svg" alt="Klever studio">
+                            <img src="/img/icon/icon-studio-w.svg" alt="Klever studio">
                         </b-navbar-brand>
 
                         <b-navbar-toggle target="nav-collapse"/>
@@ -93,8 +93,8 @@
                         direction: 'bottom',
                     });
 
-                    if (this.$route.name !== 'services-polygraphy') {
-                        this.$router.push('services-polygraphy');
+                    if (this.$route.name !== '/services-polygraphy') {
+                        this.$router.push('/services-polygraphy');
                     }
                 } else if (deltaY < 0) {
                     this.$root.$emit('change-animation-direction', {
@@ -116,7 +116,7 @@
     .page-content {
         height: 100%;
         width: 100%;
-        background: url("/img/season-bg.png") no-repeat right;
+        background:  url("/img/season-bg.png") no-repeat right;
         background-size: 50%;
         overflow: hidden;
     }
@@ -132,7 +132,7 @@
             content: '';
             width: 197px;
             height: 197px;
-            background: url("/img/season-h-bg.png") no-repeat center;
+            background:  url("/img/season-h-bg.png") no-repeat center;
             background-size: contain;
             position: absolute;
             left: -10%;

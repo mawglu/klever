@@ -395,22 +395,10 @@ html {
           margin: 0 15px auto 0;
         }
 
-        .image {
-          width: 90px;
-          height: 90px;
-          display: flex;
-          background: white;
-          border-radius: 50%;
-          @include _768 {
-            width: 70px;
-            height: 70px;
-          }
-
-          img {
-            margin: auto;
-            max-width: 100%;
-            height: auto;
-          }
+        svg {
+          margin: auto;
+          max-width: 100%;
+          height: auto;
         }
 
         .text {
@@ -496,6 +484,7 @@ html {
         filter: invert(100%);
         opacity: 0.5;
       }
+
       &.link-phone {
         &:before {
           background: white;
@@ -598,9 +587,10 @@ html {
       }
     }
   }
+
   .page-content {
     &-services {
-      //background: url("/img/services-bg.png") no-repeat right;
+      //background:  url("/img/services-bg.png") no-repeat right;
       //background-size: cover;
 
       h2 {
