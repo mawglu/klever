@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <main-feedback/>
         <transition v-bind="transitionProps" class="animate__animated">
             <router-view/>
         </transition>
@@ -19,6 +20,9 @@
                     mode: 'in-out',
                 }
             }
+        },
+        components: {
+            mainFeedback: () => import(/* webpackChunkName: "main-feedback" */'./components/mainFeedback'),
         },
         mounted() {
             this.$root.$on('change-animation-direction', this.changeTransitionProps);

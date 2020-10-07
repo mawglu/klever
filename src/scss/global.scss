@@ -404,7 +404,7 @@ html {
     flex-direction: row;
     margin: 155px 118px 0 50px;
     padding: 43px 0 53px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 
     &-column {
       width: 50%;
@@ -535,6 +535,263 @@ html {
             z-index: 10;
           }
         }
+      }
+    }
+  }
+
+  .feedback-modal {
+    .modal-dialog {
+      margin: 0 0 0 auto;
+      max-width: 400px;
+      height: 100vh;
+      background: $color-black;
+
+      .modal-content {
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        background: url("/img/feedback-bg.png") no-repeat right 0 bottom 0;
+        background-size: auto;
+
+        .modal-body {
+          padding: 50px 50px 30px 50px;
+
+          .btn-modal {
+            padding: 0;
+            margin: 0 0 35px 0;
+          }
+        }
+      }
+    }
+  }
+
+  .menu-modal {
+    .modal-dialog {
+      margin: 0 auto 0 0;
+      max-width: 400px;
+      height: 100vh;
+
+      .modal-content {
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        background: linear-gradient(194.04deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), #141925;
+
+        .right-menu {
+          top: 35%;
+          right: 60px;
+          bottom: 0;
+
+          .menu-item {
+            display: flex;
+
+            a {
+              display: flex;
+
+              svg {
+                margin: auto 20px auto 0;
+                width: -webkit-fill-available;
+              }
+
+
+              span {
+                font-family: Gilroy, sans-serif;
+                font-style: normal;
+                font-weight: 900;
+                font-size: 10px;
+                line-height: 180%;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+
+                color: $color-white;
+                margin: auto 0;
+
+                opacity: 0.3;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  form {
+    .form-group {
+      margin: 0 0 35px 0;
+
+
+      .form-control {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: 0.05em;
+        color: $color-white;
+
+        padding: 0;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 0;
+        background: transparent;
+
+        outline: none;
+
+        &:focus {
+          outline: none;
+          box-shadow: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 1);
+        }
+      }
+
+      textarea {
+        &.form-control {
+          padding: 20px;
+          border-left: 1px solid rgba(255, 255, 255, 0.3);
+          border-top: 1px solid rgba(255, 255, 255, 0.3);
+          border-right: 1px solid rgba(255, 255, 255, 0.3);
+        }
+      }
+
+      .multiselect {
+        position: relative;
+        cursor: pointer;
+
+        &:before {
+          content: '';
+          width: 14px;
+          height: 16px;
+          background: url("/img/icon/pointer-w.svg") no-repeat top right 0;
+          background-size: contain;
+          position: absolute;
+          top: 5px;
+          right: 0;
+          transition: all .3s ease-in-out;
+        }
+
+        &:focus {
+          border-bottom: none;
+        }
+
+        &--active {
+          border-bottom: none;
+
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
+
+        &__placeholder {
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        &__content {
+          list-style: none;
+          padding: 0;
+        }
+
+        &__element {
+          line-height: 44px;
+        }
+
+        &__content-wrapper {
+          margin: 22px 0 0 0;
+          position: relative;
+          z-index: 10;
+          background: $color-black;
+          border-bottom: 1px solid $color-white;
+        }
+      }
+
+      .custom {
+        &-file {
+          height: auto !important;
+          width: auto !important;
+          cursor: pointer;
+
+          &-input {
+            height: auto !important;
+            width: auto !important;
+          }
+
+          &-label {
+            height: auto !important;
+            width: auto !important;
+            font-family: Gilroy, sans-serif;
+            font-style: normal;
+            font-weight: 900;
+            font-size: 10px;
+            line-height: 180%;
+            letter-spacing: 0.2em;
+            text-decoration-line: underline;
+            text-transform: uppercase;
+
+            color: $color-white;
+            padding: 0 0 0 23px;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+
+            &:before {
+              content: '';
+              width: 15px;
+              height: 15px;
+              background: url("/img/icon/input-file.svg") no-repeat center;
+              background-size: contain;
+              position: absolute;
+              top: 3px;
+              left: 0;
+            }
+
+            &:after {
+              content: none !important;
+            }
+          }
+        }
+
+        &.active {
+          .custom-file-label {
+
+            &:before {
+              background: url("/img/icon/input-file-value.svg") no-repeat center;
+            }
+          }
+        }
+      }
+    }
+
+    .error {
+      font-family: Gilroy, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 24px;
+      letter-spacing: 0.05em;
+      color: #FF6969;
+
+      position: absolute;
+      opacity: 0;
+
+      transition: all .3s ease-in-out;
+    }
+
+    &--error {
+      .form-control {
+        border-bottom: 1px solid rgba(255, 105, 105, 0.3);
+
+        &::placeholder {
+          color: #FF6969;
+        }
+
+        &:focus {
+          border-bottom: 1px solid rgba(255, 105, 105, 0.3);
+        }
+
+      }
+
+      .error {
+        opacity: 1;
       }
     }
   }

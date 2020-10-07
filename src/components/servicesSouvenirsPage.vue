@@ -100,20 +100,21 @@
                         <b-navbar-toggle target="nav-collapse"/>
 
                         <b-collapse id="nav-collapse" is-nav>
-                            <b-navbar-nav class="ml-auto">
-                                <b-nav-item-dropdown text="Услуги">
-                                    <b-dropdown-item href="#">Производство полиграфии</b-dropdown-item>
-                                    <b-dropdown-item href="#">Рекламные конструкции</b-dropdown-item>
-                                    <b-dropdown-item href="#">Сувенирная продукция</b-dropdown-item>
-                                    <b-dropdown-item href="#">Сувенирная продукция</b-dropdown-item>
-                                </b-nav-item-dropdown>
-                                <b-nav-item href="#">Агентство</b-nav-item>
-                                <b-nav-item href="#">Контакты</b-nav-item>
-                                <b-nav-item href="#">Блог</b-nav-item>
-                            </b-navbar-nav>
-                            <b-navbar-nav>
-                                <b-nav-item href="#">Обратная связь</b-nav-item>
-                            </b-navbar-nav>
+                             <b-navbar-nav class="ml-auto">
+                                        <b-nav-item-dropdown text="Услуги">
+                                            <b-dropdown-item href="/services-polygraphy">Производство полиграфии
+                                            </b-dropdown-item>
+                                            <b-dropdown-item href="/services-souvenirs">Сувенирная продукция
+                                            </b-dropdown-item>
+                                            <b-dropdown-item href="/">Рекламные конструкции</b-dropdown-item>
+                                        </b-nav-item-dropdown>
+                                        <b-nav-item href="/about">Агентство</b-nav-item>
+                                        <b-nav-item href="/contacts">Контакты</b-nav-item>
+                                        <b-nav-item href="/blog">Блог</b-nav-item>
+                                    </b-navbar-nav>
+                           <b-navbar-nav>
+                                        <b-nav-item v-b-modal.feedback>Обратная связь</b-nav-item>
+                                    </b-navbar-nav>
                         </b-collapse>
                     </b-navbar>
                 </b-col>
@@ -197,42 +198,7 @@
                 </b-col>
             </b-row>
         </div>
-        <div class="footer">
-            <div class="footer-column">
-                <div class="to-up my-auto">
-                    <div class="circle circle-60 circle-transparent circle-white-br">
-                        <svg width="21" height="16" class="m-auto" viewBox="0 0 21 16" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.4039 8.8741C20.7944 8.48357 20.7944 7.85041 20.4039 7.45989L14.0399 1.09592C13.6494 0.7054 13.0162 0.7054 12.6257 1.09592C12.2352 1.48645 12.2352 2.11961 12.6257 2.51014L18.2826 8.16699L12.6257 13.8238C12.2352 14.2144 12.2352 14.8475 12.6257 15.2381C13.0162 15.6286 13.6494 15.6286 14.0399 15.2381L20.4039 8.8741ZM0.302734 9.16699H19.6968V7.16699H0.302734V9.16699Z"
-                                  fill="#FFFFFF"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="footer-logo my-auto">
-                    <b-navbar variant="faded" toggleable="lg" type="light">
-                        <b-navbar-brand href="/">
-                            <img src="/img/icon-logo-w.svg" alt="Klever studio">
-                            <img src="/img/icon-studio-w.svg" alt="Klever studio">
-                        </b-navbar-brand>
-                    </b-navbar>
-                </div>
-                <div class="footer-copyright my-auto">
-                    <div class="text text-white text-gilroy">
-                        © 2012 — 2020 klever-studio.ru
-                    </div>
-                </div>
-            </div>
-            <div class="footer-column">
-                <div class="slide-contact my-auto">
-                    <a href="#" class="link link-w link-mail">E: andrey@klever-studio.ru</a>
-                    <a href="#" class="link link-w link-phone">
-                        <i class="wa"/>
-                        <i class="tg"/>
-                        T: +7 (926) 339 75 47
-                    </a>
-                </div>
-            </div>
-        </div>
+        <main-footer/>
     </div>
 </template>
 
@@ -241,7 +207,7 @@
     import 'swiper/dist/css/swiper.min.css'
 
     export default {
-        name: "servicesPolygraphyPage",
+        name: "servicesSouvenirsPage",
         props: {
             starterSlide: {
                 type: Number,
@@ -267,23 +233,25 @@
         components: {
             Swiper,
             SwiperSlide,
+            mainFooter: () => import(/* webpackChunkName: "main-footer" */'./mainFooter')
         },
         swiper() {
             return this.$refs.serviceSwiper.$swiper; // инициализируем слайдер
         },
         methods: {
-            // onwheel(ev) {
-            //     const deltaY = ev.deltaY;
-            //     if (deltaY < 0) {
-            //         this.$root.$emit('change-animation-direction', {
-            //             direction: 'top',
-            //         });
-            //
-            //         if (this.$route.name !== 'season') {
-            //             this.$router.push('season');
-            //         }
-            //     }
-            // }
+            onwheel(ev) {
+                console.log(ev);
+                // const deltaY = ev.deltaY;
+                // if (deltaY < 0) {
+                //     this.$root.$emit('change-animation-direction', {
+                //         direction: 'top',
+                //     });
+                //
+                //     if (this.$route.name !== 'season') {
+                //         this.$router.push('season');
+                //     }
+                // }
+            }
         }
     }
 </script>

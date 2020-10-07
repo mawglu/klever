@@ -1,9 +1,10 @@
 <template>
     <div class="bg-black h-vh-100 w-vw-100" @wheel="onwheel">
+        <main-menu/>
         <div class="page-content page-content-services container-fluid">
             <div class="right-menu">
                 <div class="menu-item">
-                    <a href="#">
+                    <a v-b-modal.right-menu>
                         <svg width="41" height="42" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                   d="M23.6053 23.9161C23.6053 24.4584 31.9421 26.9301 31.9421 31.3787C31.9421 33.5366 30.0651 34.7057 27.8595 34.7057L26.5066 34.6693C25.9584 34.6456 25.9335 34.633 25.6656 34.9349C24.6537 36.104 23.4352 37.5149 21.6436 37.5631C20.3762 37.5994 19.3402 36.8153 18.9014 35.9356C18.4991 35.1159 18.2063 33.3919 18.2063 32.162C17.9749 32.3312 16.9141 33.9705 16.6097 34.3563C16.3534 34.6819 14.7939 36.1047 14.7939 36.3458C14.7939 38.9621 17.8406 41.12 20.4857 41.12H20.8879C22.6431 41.12 24.3733 40.1557 25.3611 39.3716C26.0679 38.8049 26.6899 37.9733 26.9089 37.8042C27.8595 37.0446 31.3084 38.4073 34.063 35.5862C34.953 34.6819 36.1226 33.1271 36.1226 31.3423V31.0894C36.1226 28.3766 33.5512 25.7847 31.9421 24.6275C30.9302 23.9043 26.2628 21.0105 24.9216 21.0105C24.3609 21.0112 23.6053 23.2174 23.6053 23.9161Z"
@@ -100,20 +101,21 @@
                         <b-navbar-toggle target="nav-collapse"/>
 
                         <b-collapse id="nav-collapse" is-nav>
-                            <b-navbar-nav class="ml-auto">
-                                <b-nav-item-dropdown text="Услуги">
-                                    <b-dropdown-item href="#">Производство полиграфии</b-dropdown-item>
-                                    <b-dropdown-item href="#">Рекламные конструкции</b-dropdown-item>
-                                    <b-dropdown-item href="#">Сувенирная продукция</b-dropdown-item>
-                                    <b-dropdown-item href="#">Сувенирная продукция</b-dropdown-item>
-                                </b-nav-item-dropdown>
-                                <b-nav-item href="#">Агентство</b-nav-item>
-                                <b-nav-item href="#">Контакты</b-nav-item>
-                                <b-nav-item href="#">Блог</b-nav-item>
-                            </b-navbar-nav>
-                            <b-navbar-nav>
-                                <b-nav-item href="#">Обратная связь</b-nav-item>
-                            </b-navbar-nav>
+                             <b-navbar-nav class="ml-auto">
+                                        <b-nav-item-dropdown text="Услуги">
+                                            <b-dropdown-item href="/services-polygraphy">Производство полиграфии
+                                            </b-dropdown-item>
+                                            <b-dropdown-item href="/services-souvenirs">Сувенирная продукция
+                                            </b-dropdown-item>
+                                            <b-dropdown-item href="/">Рекламные конструкции</b-dropdown-item>
+                                        </b-nav-item-dropdown>
+                                        <b-nav-item href="/about">Агентство</b-nav-item>
+                                        <b-nav-item href="/contacts">Контакты</b-nav-item>
+                                        <b-nav-item href="/blog">Блог</b-nav-item>
+                                    </b-navbar-nav>
+                           <b-navbar-nav>
+                                        <b-nav-item v-b-modal.feedback>Обратная связь</b-nav-item>
+                                    </b-navbar-nav>
                         </b-collapse>
                     </b-navbar>
                 </b-col>
@@ -179,22 +181,22 @@
                             :options="swiperOptions"
                     >
                         <swiper-slide>
-                            <img  src="/img/service-slide-1.png">
+                            <img src="/img/service-slide-1.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img  src="/img/service-slide-2.png">
+                            <img src="/img/service-slide-2.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img  src="/img/service-slide-3.png">
+                            <img src="/img/service-slide-3.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img  src="/img/service-slide-1.png">
+                            <img src="/img/service-slide-1.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img  src="/img/service-slide-2.png">
+                            <img src="/img/service-slide-2.png">
                         </swiper-slide>
                         <swiper-slide>
-                            <img  src="/img/service-slide-3.png">
+                            <img src="/img/service-slide-3.png">
                         </swiper-slide>
                         <div class="swiper-pagination" slot="pagination"></div>
                         <div class="swiper-button-prev" slot="button-prev"></div>
@@ -203,42 +205,7 @@
                 </b-col>
             </b-row>
         </div>
-        <div class="footer">
-            <div class="footer-column">
-                <div class="to-up my-auto">
-                    <div class="circle circle-60 circle-transparent circle-white-br">
-                        <svg width="21" height="16" class="m-auto" viewBox="0 0 21 16" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.4039 8.8741C20.7944 8.48357 20.7944 7.85041 20.4039 7.45989L14.0399 1.09592C13.6494 0.7054 13.0162 0.7054 12.6257 1.09592C12.2352 1.48645 12.2352 2.11961 12.6257 2.51014L18.2826 8.16699L12.6257 13.8238C12.2352 14.2144 12.2352 14.8475 12.6257 15.2381C13.0162 15.6286 13.6494 15.6286 14.0399 15.2381L20.4039 8.8741ZM0.302734 9.16699H19.6968V7.16699H0.302734V9.16699Z"
-                                  fill="#FFFFFF"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="footer-logo my-auto">
-                    <b-navbar variant="faded" toggleable="lg" type="light">
-                        <b-navbar-brand href="/">
-                            <img src="/img/icon/icon-logo-opacity.svg" alt="Klever studio">
-                            <img src="/img/icon/icon-studio-w.svg" alt="Klever studio">
-                        </b-navbar-brand>
-                    </b-navbar>
-                </div>
-                <div class="footer-copyright my-auto">
-                    <div class="text text-white text-gilroy">
-                        © 2012 — 2020 klever-studio.ru
-                    </div>
-                </div>
-            </div>
-            <div class="footer-column">
-                <div class="slide-contact my-auto">
-                    <a href="#" class="link link-w link-mail">E: andrey@klever-studio.ru</a>
-                    <a href="#" class="link link-w link-phone">
-                        <i class="wa"/>
-                        <i class="tg"/>
-                        T: +7 (926) 339 75 47
-                    </a>
-                </div>
-            </div>
-        </div>
+        <main-footer/>
     </div>
 </template>
 
@@ -273,22 +240,25 @@
         components: {
             Swiper,
             SwiperSlide,
+            mainFooter: () => import(/* webpackChunkName: "main-footer" */'./mainFooter'),
+            mainMenu: () => import(/* webpackChunkName: "main-menu" */'./mainMenu')
         },
         swiper() {
             return this.$refs.serviceSwiper.$swiper; // инициализируем слайдер
         },
         methods: {
             onwheel(ev) {
-                const deltaY = ev.deltaY;
-                if (deltaY < 0) {
-                    this.$root.$emit('change-animation-direction', {
-                        direction: 'top',
-                    });
-
-                    if (this.$route.name !== 'season') {
-                        this.$router.push('/season');
-                    }
-                }
+                console.log(ev);
+                // const deltaY = ev.deltaY;
+                // if (deltaY < 0) {
+                //     this.$root.$emit('change-animation-direction', {
+                //         direction: 'top',
+                //     });
+                //
+                //     if (this.$route.name !== 'season') {
+                //         this.$router.push('/season');
+                //     }
+                // }
             }
         }
     }
@@ -299,8 +269,9 @@
 
     .page-content {
         &-services {
-            background:  url("/img/services-bg.png") no-repeat right;
+            background: url("/img/services-bg.png") no-repeat right;
             background-size: cover;
+
             .schedule {
                 margin: 100px 0 0 120px;
                 max-width: 85%;

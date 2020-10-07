@@ -14,8 +14,11 @@ html {
     &-brand {
       display: flex;
       padding: 0;
+      position: relative;
+      z-index: 2000;
 
-      img {
+      img,
+      svg {
         margin: auto 0;
 
         &:first-child {

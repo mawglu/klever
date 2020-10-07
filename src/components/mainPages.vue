@@ -1,6 +1,5 @@
 <template>
     <div @wheel="onwheel">
-        <page-aside/>
         <div class="bg-green">
             <div class="page container-fluid">
                 <div class="page-main" ref="headerSlider">
@@ -17,17 +16,18 @@
                                 <b-collapse id="nav-collapse" is-nav>
                                     <b-navbar-nav class="ml-auto">
                                         <b-nav-item-dropdown text="Услуги">
-                                            <b-dropdown-item href="#">Производство полиграфии</b-dropdown-item>
-                                            <b-dropdown-item href="#">Рекламные конструкции</b-dropdown-item>
-                                            <b-dropdown-item href="#">Сувенирная продукция</b-dropdown-item>
-                                            <b-dropdown-item href="#">Сувенирная продукция</b-dropdown-item>
+                                            <b-dropdown-item href="/services-polygraphy">Производство полиграфии
+                                            </b-dropdown-item>
+                                            <b-dropdown-item href="/services-souvenirs">Сувенирная продукция
+                                            </b-dropdown-item>
+                                            <b-dropdown-item href="/">Рекламные конструкции</b-dropdown-item>
                                         </b-nav-item-dropdown>
-                                        <b-nav-item href="#">Агентство</b-nav-item>
-                                        <b-nav-item href="#">Контакты</b-nav-item>
-                                        <b-nav-item href="#">Блог</b-nav-item>
+                                        <b-nav-item href="/about">Агентство</b-nav-item>
+                                        <b-nav-item href="/contacts">Контакты</b-nav-item>
+                                        <b-nav-item href="/blog">Блог</b-nav-item>
                                     </b-navbar-nav>
                                     <b-navbar-nav>
-                                        <b-nav-item href="#">Обратная связь</b-nav-item>
+                                        <b-nav-item v-b-modal.feedback>Обратная связь</b-nav-item>
                                     </b-navbar-nav>
                                 </b-collapse>
                             </b-navbar>
@@ -262,7 +262,7 @@
     import 'swiper/dist/css/swiper.min.css'
 
     export default {
-        name: "MainScrollSlider",
+        name: "mainPages",
         props: {
             starterSlide: {
                 type: Number,
@@ -271,8 +271,7 @@
         },
         components: {
             Swiper,
-            SwiperSlide,
-            pageAside: () => import(/* webpackChunkName: "page-aside" */'./pageAside'),
+            SwiperSlide
         },
         data: () => {
             return {

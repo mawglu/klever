@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
+import VueMask from 'v-mask'
+import Vuelidate from 'vuelidate'
 import {BModal, BootstrapVue,} from 'bootstrap-vue'
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
+Vue.use(VueMask);
+Vue.use(Vuelidate);
 Vue.use(BootstrapVue, BModal);
 
 const router = new VueRouter({
@@ -39,7 +43,7 @@ const router = new VueRouter({
         {
             path: '/about/details',
             name: 'about-details',
-            component: () => import('./components/aboutPages')
+            component: () => import('./components/aboutPage')
         },
         {
             path: '/portfolio',
@@ -49,12 +53,17 @@ const router = new VueRouter({
         {
             path: '/portfolio/for-clients',
             name: 'for-clients',
-            component: () => import('./components/portfolioPages')
+            component: () => import('./components/portfolioPage')
         },
         {
             path: '/contacts',
             name: 'main-contacts',
             component: () => import('./components/mainPages')
+        },
+        {
+            path: '/blog',
+            name: 'main-blog',
+            component: () => import('./components/blogPage')
         }
     ]
 });

@@ -447,6 +447,201 @@ html .portfolio-modal .modal-dialog .modal-content .modal-body .btn-modal {
   left: 50px;
   z-index: 10;
 }
+html .feedback-modal .modal-dialog {
+  margin: 0 0 0 auto;
+  max-width: 400px;
+  height: 100vh;
+  background: #161A25;
+}
+html .feedback-modal .modal-dialog .modal-content {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  background: url("/img/feedback-bg.png") no-repeat right 0 bottom 0;
+  background-size: auto;
+}
+html .feedback-modal .modal-dialog .modal-content .modal-body {
+  padding: 50px 50px 30px 50px;
+}
+html .feedback-modal .modal-dialog .modal-content .modal-body .btn-modal {
+  padding: 0;
+  margin: 0 0 35px 0;
+}
+html .menu-modal .modal-dialog {
+  margin: 0 auto 0 0;
+  max-width: 400px;
+  height: 100vh;
+}
+html .menu-modal .modal-dialog .modal-content {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  background: linear-gradient(194.04deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), #141925;
+}
+html .menu-modal .modal-dialog .modal-content .right-menu {
+  top: 35%;
+  right: 60px;
+  bottom: 0;
+}
+html .menu-modal .modal-dialog .modal-content .right-menu .menu-item {
+  display: flex;
+}
+html .menu-modal .modal-dialog .modal-content .right-menu .menu-item a {
+  display: flex;
+}
+html .menu-modal .modal-dialog .modal-content .right-menu .menu-item a svg {
+  margin: auto 20px auto 0;
+  width: -webkit-fill-available;
+}
+html .menu-modal .modal-dialog .modal-content .right-menu .menu-item a span {
+  font-family: Gilroy, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 10px;
+  line-height: 180%;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: auto 0;
+  opacity: 0.3;
+}
+html form .form-group {
+  margin: 0 0 35px 0;
+}
+html form .form-group .form-control {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  padding: 0;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0;
+  background: transparent;
+  outline: none;
+}
+html form .form-group .form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom: 1px solid white;
+}
+html form .form-group textarea.form-control {
+  padding: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+html form .form-group .multiselect {
+  position: relative;
+  cursor: pointer;
+}
+html form .form-group .multiselect:before {
+  content: "";
+  width: 14px;
+  height: 16px;
+  background: url("/img/icon/pointer-w.svg") no-repeat top right 0;
+  background-size: contain;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+}
+html form .form-group .multiselect:focus {
+  border-bottom: none;
+}
+html form .form-group .multiselect--active {
+  border-bottom: none;
+}
+html form .form-group .multiselect--active:before {
+  transform: rotate(180deg);
+}
+html form .form-group .multiselect__placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+html form .form-group .multiselect__content {
+  list-style: none;
+  padding: 0;
+}
+html form .form-group .multiselect__element {
+  line-height: 44px;
+}
+html form .form-group .multiselect__content-wrapper {
+  margin: 22px 0 0 0;
+  position: relative;
+  z-index: 10;
+  background: #161A25;
+  border-bottom: 1px solid #FFFFFF;
+}
+html form .form-group .custom-file {
+  height: auto !important;
+  width: auto !important;
+  cursor: pointer;
+}
+html form .form-group .custom-file-input {
+  height: auto !important;
+  width: auto !important;
+}
+html form .form-group .custom-file-label {
+  height: auto !important;
+  width: auto !important;
+  font-family: Gilroy, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 10px;
+  line-height: 180%;
+  letter-spacing: 0.2em;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  padding: 0 0 0 23px;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+html form .form-group .custom-file-label:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: url("/img/icon/input-file.svg") no-repeat center;
+  background-size: contain;
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+html form .form-group .custom-file-label:after {
+  content: none !important;
+}
+html form .form-group .custom.active .custom-file-label:before {
+  background: url("/img/icon/input-file-value.svg") no-repeat center;
+}
+html form .error {
+  font-family: Gilroy, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  color: #FF6969;
+  position: absolute;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+html form--error .form-control {
+  border-bottom: 1px solid rgba(255, 105, 105, 0.3);
+}
+html form--error .form-control::placeholder {
+  color: #FF6969;
+}
+html form--error .form-control:focus {
+  border-bottom: 1px solid rgba(255, 105, 105, 0.3);
+}
+html form--error .error {
+  opacity: 1;
+}
 
 html .navbar {
   padding: 37px 118px 70px 55px;
@@ -464,11 +659,15 @@ html .navbar {
 html .navbar-brand {
   display: flex;
   padding: 0;
+  position: relative;
+  z-index: 2000;
 }
-html .navbar-brand img {
+html .navbar-brand img,
+html .navbar-brand svg {
   margin: auto 0;
 }
-html .navbar-brand img:first-child {
+html .navbar-brand img:first-child,
+html .navbar-brand svg:first-child {
   margin: auto 10px auto 0;
 }
 html .navbar-toggler {
