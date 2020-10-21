@@ -1,7 +1,7 @@
 <template>
-    <div id="app">
+    <div id="app" class="position-relative">
         <main-feedback/>
-        <transition v-bind="transitionProps" class="animate__animated">
+        <transition v-bind="transitionProps">
             <router-view/>
         </transition>
     </div>
@@ -29,13 +29,12 @@
         },
         methods: {
             changeTransitionProps(arg = {}) {
-                console.log(arg);
                 if (typeof arg.direction !== "undefined") {
                     switch (arg.direction) {
                         case 'top':
                             this.transitionProps = {
                                 name: 'anti-fade',
-                                mode: 'out-in',
+                                mode: 'in-out',
                             };
                             break;
                         case 'bottom':
@@ -56,26 +55,51 @@
 <style lang="scss">
     @import "./src/scss/style";
 
+    $animation-time: .5s;
+
+    .fade-enter-to {
+        margin-top: -100vh;
+        z-index: 100;
+    }
+
     .fade-enter-active,
     .fade-leave-active {
-        transition: margin-top .5s;
+        position: absolute;
+        transition: margin-top $animation-time;
     }
 
+    .fade-leave,
     .fade-leave-to {
-        margin-top: -100vh;
+        opacity: 0;
+        z-index: 1;
     }
+
 
     .anti-fade-enter {
+        margin-top: -200vh;
+    }
+
+    .anti-fade-enter-to {
         margin-top: -100vh;
+        z-index: 100;
     }
 
-    .anti-fade-enter-active,
+    .anti-fade-enter-active {
+        position: absolute;
+        transition: margin-top $animation-time;
+    }
+
     .anti-fade-leave-active {
-        transition: margin-top .3s ease-in-out;
+        opacity: 0;
+        position: absolute;
+        transition: margin-top $animation-time;
     }
 
+    .anti-fade-leave,
     .anti-fade-leave-to {
-        margin-top: 100vh;
+        opacity: 0;
+        z-index: 1;
     }
+
 
 </style>

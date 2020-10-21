@@ -88,21 +88,21 @@
                 </b-col>
                 <b-col cols="12">
                     <div class="d-flex flex-wrap">
-                        <div class="underline underline-pink">
-                            <a href="https://klever-print.ru/" referrerpolicy="no-referrer" target="_blank"
-                               class="text text-lg-24 text-lt-02 text-pink-liner font-w-900 text-uppercase arrow-after arrow-after-pink">
-                                Klever-print.ru
+                        <div class="underline underline-blue">
+                            <a href="http://klever-prodctuion.ru/" referrerpolicy="no-referrer" target="_blank"
+                               class="text text-lg-24 text-lt-02 text-blue-liner font-w-900 text-uppercase arrow-after arrow-after-blue">
+                                klever-prodctuion.ru
                             </a>
                         </div>
                     </div>
                 </b-col>
                 <b-col cols="12">
                     <h2 class="text-white">
-                        На сегодняшний день полиграфия – это инструмент маркетинга
+                        Рекламные конструкции специально для вас
                     </h2>
                 </b-col>
                 <b-col cols="12">
-                    <div class="separator separator-pink">
+                    <div class="separator separator-blue">
                         <div class="separator-line"></div>
                         <div class="text text-white text-sm-10 text-uppercase text-lt-02 font-w-900">
                             НАШИ ВОЗМОЖНОСТИ
@@ -113,32 +113,38 @@
                     <div class="schedule">
                         <div class="schedule-item">
                             <div class="nubmer">1/</div>
-                            <div class="text text-lg-24 text-lt-02 text-pink-liner font-w-900 text-uppercase text-gilroy">
-                                цифровая<br>полиграфия
+                            <div class="text text-lg-24 text-lt-02 text-blue-liner font-w-900 text-uppercase text-gilroy">
+                                ПЕЧАТЬ<br>БАННЕРОВ
                             </div>
                         </div>
                         <div class="schedule-item">
                             <div class="nubmer">2/</div>
-                            <div class="text text-lg-24 text-lt-02 text-pink-liner font-w-900 text-uppercase text-gilroy">
-                                офсетное<br>производство
+                            <div class="text text-lg-24 text-lt-02 text-blue-liner font-w-900 text-uppercase text-gilroy">
+                                РОЛЛ-АП /<br>ПОП-АП
                             </div>
                         </div>
                         <div class="schedule-item">
                             <div class="nubmer">3/</div>
-                            <div class="text text-lg-24 text-lt-02 text-pink-liner font-w-900 text-uppercase text-gilroy">
-                                печать<br>наклеек
+                            <div class="text text-lg-24 text-lt-02 text-blue-liner font-w-900 text-uppercase text-gilroy">
+                                ПЛАсТИКОВыЕ<br>КОНСТРУКЦИИ
                             </div>
                         </div>
                         <div class="schedule-item">
                             <div class="nubmer">4/</div>
-                            <div class="text text-lg-24 text-lt-02 text-pink-liner font-w-900 text-uppercase text-gilroy">
-                                дизайнерская<br>бумага
+                            <div class="text text-lg-24 text-lt-02 text-blue-liner font-w-900 text-uppercase text-gilroy">
+                                ДЖОКЕРНЫЕ<br>КОНСТРУКЦИИ
                             </div>
                         </div>
                         <div class="schedule-item">
                             <div class="nubmer">5/</div>
-                            <div class="text text-lg-24 text-lt-02 text-pink-liner font-w-900 text-uppercase text-gilroy">
-                                печать на пластике<br>и текстиле
+                            <div class="text text-lg-24 text-lt-02 text-blue-liner font-w-900 text-uppercase text-gilroy">
+                                ЛАЙТ БОКСЫ/<br>ВЫВЕСКИ
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="nubmer">6/</div>
+                            <div class="text text-lg-24 text-lt-02 text-blue-liner font-w-900 text-uppercase text-gilroy">
+                                ЛАЙТ БОКСЫ/<br>ВЫВЕСКИ
                             </div>
                         </div>
                     </div>
@@ -181,7 +187,7 @@
     import 'swiper/dist/css/swiper.min.css'
 
     export default {
-        name: "servicesPolygraphyPage",
+        name: "advertisingConstructionsPage",
         props: {
             starterSlide: {
                 type: Number,
@@ -243,10 +249,11 @@
 <style lang="scss" scoped>
     @import "/src/scss/style.scss";
 
+
     .page-content {
         &-services {
-            background: url("/img/services-bg.png") no-repeat right;
-            background-size: cover;
+            background: url("/img/services-bg-3.png") no-repeat right top;
+            background-size: 70%;
 
             .schedule {
                 margin: 100px 0 0 120px;
@@ -259,17 +266,14 @@
                 }
 
                 &-item {
-                    width: calc(100% / 3);
+                    width: calc(100% / 2);
                     margin: 0 0 70px 0;
-                    @include _1024 {
-                        width: calc(100% / 2);
-                        @include _600 {
-                            .text {
-                                font-size: 16px;
-                            }
-                            @include _480 {
-                                width: 100%;
-                            }
+                    @include _600 {
+                        .text {
+                            font-size: 16px;
+                        }
+                        @include _480 {
+                            width: 100%;
                         }
                     }
 

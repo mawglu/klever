@@ -87,35 +87,39 @@
                         rows="5"
                 />
             </b-form-group>
-            <b-form-group label-class="form-label" class="input-form">
-                <div class="d-flex">
-                    <b-form-file
-                            v-model="file"
-                            placeholder="прикрепить файл/бриф"
-                            name="file"
-                            v-bind:class="{'active': file !== null}"
-                    />
-                    <b-button @click="file = null" variant="form" class="p-0 m-0">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g opacity="0.5">
-                                <path d="M1.27832 11.0004L11.2783 1.00037" stroke="white" stroke-width="2"/>
-                                <path d="M1.27832 1L11.2783 11" stroke="white" stroke-width="2"/>
-                            </g>
-                        </svg>
-                    </b-button>
-                </div>
-            </b-form-group>
-            <b-form-group label-class="form-label" class="input-form">
-                <b-button type="submit" variant="modal">
-                    <div class="circle circle-60 circle-green d-flex">
-                        <svg class="m-auto" width="15" height="12" viewBox="0 0 15 12" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.6153 6.53033C14.9082 6.23744 14.9082 5.76256 14.6153 5.46967L9.84232 0.696699C9.54943 0.403806 9.07455 0.403806 8.78166 0.696699C8.48877 0.989592 8.48877 1.46447 8.78166 1.75736L13.0243 6L8.78166 10.2426C8.48877 10.5355 8.48877 11.0104 8.78166 11.3033C9.07455 11.5962 9.54943 11.5962 9.84232 11.3033L14.6153 6.53033ZM0.0849609 6.75H14.085V5.25H0.0849609V6.75Z"
-                                  fill="#161A25"/>
-                        </svg>
+            <div class="form-group-flex">
+                <b-form-group label-class="form-label" class="input-form">
+                    <div class="d-flex">
+                        <b-form-file
+                                v-model="file"
+                                placeholder="прикрепить файл/бриф"
+                                name="file"
+                                v-bind:class="{'active': file !== null}"
+                        />
+                        <b-button @click="file = null" v-bind:class="{'active': file !== null}" variant="form"
+                                  class="p-0">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <g opacity="0.5">
+                                    <path d="M1.27832 11.0004L11.2783 1.00037" stroke="white" stroke-width="2"/>
+                                    <path d="M1.27832 1L11.2783 11" stroke="white" stroke-width="2"/>
+                                </g>
+                            </svg>
+                        </b-button>
                     </div>
-                </b-button>
-            </b-form-group>
+                </b-form-group>
+                <b-form-group label-class="form-label" class="input-form">
+                    <b-button type="submit" variant="modal">
+                        <div class="circle circle-60 circle-green d-flex">
+                            <svg class="m-auto" width="15" height="12" viewBox="0 0 15 12" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.6153 6.53033C14.9082 6.23744 14.9082 5.76256 14.6153 5.46967L9.84232 0.696699C9.54943 0.403806 9.07455 0.403806 8.78166 0.696699C8.48877 0.989592 8.48877 1.46447 8.78166 1.75736L13.0243 6L8.78166 10.2426C8.48877 10.5355 8.48877 11.0104 8.78166 11.3033C9.07455 11.5962 9.54943 11.5962 9.84232 11.3033L14.6153 6.53033ZM0.0849609 6.75H14.085V5.25H0.0849609V6.75Z"
+                                      fill="#161A25"/>
+                            </svg>
+                        </div>
+                    </b-button>
+                </b-form-group>
+            </div>
         </b-form>
     </b-modal>
 </template>
@@ -152,6 +156,38 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "/src/scss/style.scss";
 
+    .feedback-modal {
+        .btn-modal {
+            margin: 0 0 35px 0;
+        }
+
+        .form-group-flex {
+            display: flex;
+
+            .form-group {
+                margin: auto 0;
+
+                .btn-modal {
+                    margin: 0 !important;
+                }
+            }
+
+            @include _768 {
+                flex-wrap: wrap;
+            }
+        }
+
+        .btn-form {
+            margin: -10px 0 0 10px;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+    }
 </style>

@@ -5,16 +5,59 @@ $color-green: #D2FF57;
 $color-pink: #F000FE;
 $color-white: #FFFFFF;
 $color-black: #161A25;
+$color-blue: #010BFF;
 
 
 html {
+  overflow-x: hidden;
+
+  @include _1170 {
+    height: 100%;
+
+    body {
+      height: 100%;
+
+      #app {
+        height: 100%;
+
+        .page {
+          height: 100%;
+        }
+      }
+    }
+  }
+  //@include _767 {
+  //  height: auto;
+  //
+  //  body {
+  //    height: auto;
+  //
+  //    #app {
+  //      height: auto;
+  //
+  //      .page {
+  //        height: auto;
+  //      }
+  //    }
+  //  }
+  //}
+
   &::-webkit-scrollbar {
-    width: 0;
+    width: 0 !important;
+  }
+
+  > * {
+    &::-webkit-scrollbar {
+      width: 0 !important;
+    }
   }
 
   .h {
     &-vh-100 {
       height: 100vh;
+      @include _1170 {
+        height: 100%;
+      }
     }
   }
 
@@ -57,7 +100,7 @@ html {
     font-weight: bold;
     font-size: 80px;
     line-height: 110%;
-    @include _767 {
+    @include _991 {
       font-size: 3em;
     }
   }
@@ -66,6 +109,9 @@ html {
     font-weight: bold;
     font-size: 60px;
     line-height: 150%;
+    @include _991 {
+      font-size: 1.5em;
+    }
   }
 
   h4 {
@@ -108,6 +154,16 @@ html {
       }
     }
 
+    &-blue {
+      color: $color-blue;
+
+      &-liner {
+        background: linear-gradient(90deg, #0176FF 0%, #01B3FF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
     &-sm-10 {
       font-size: 10px;
       line-height: 180%;
@@ -116,16 +172,25 @@ html {
     &-lg-18 {
       font-size: 18px;
       line-height: 150%;
+      @include _991 {
+        font-size: 16px;
+      }
     }
 
     &_lg-20 {
       font-size: 20px;
       line-height: 150%;
+      @include _991 {
+        font-size: 18px;
+      }
     }
 
     &-lg-24 {
       font-size: 24px;
       line-height: 180%;
+      @include _991 {
+        font-size: 20px;
+      }
     }
 
     &-lt-02 {
@@ -196,16 +261,28 @@ html {
     &-90 {
       width: 90px;
       height: 90px;
+      @include _991 {
+        width: 70px;
+        height: 70px;
+      }
     }
 
     &-80 {
       width: 80px;
       height: 80px;
+      @include _991 {
+        width: 60px;
+        height: 60px;
+      }
     }
 
     &-60 {
       width: 60px;
       height: 60px;
+      @include _991 {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 
@@ -267,7 +344,28 @@ html {
         }
       }
     }
+
+    &-blue {
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #0176FF 0%, #01B3FF 100%);
+        transition: all .3s ease-in-out;
+      }
+
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
+    }
   }
+
 
   .separator {
     display: flex;
@@ -275,12 +373,18 @@ html {
 
     .text {
       margin: auto 0 auto 50px;
+      @include _1170 {
+        margin: auto 0 auto 90px;
+      }
     }
 
     .separator-line {
       height: 2px;
       width: 200px;
       margin: auto 0 auto 120px;
+      @include _767 {
+        margin: auto 0 auto 90px;
+      }
     }
 
     &-pink {
@@ -292,6 +396,12 @@ html {
     &-green {
       .separator-line {
         background: linear-gradient(270deg, #DAFE01 0%, #91FE01 100%);
+      }
+    }
+
+    &-blue {
+      .separator-line {
+        background: linear-gradient(90deg, #0176FF 0%, #01B3FF 94.1%);
       }
     }
   }
@@ -320,6 +430,9 @@ html {
         color: $color-black;
         opacity: 0.3;
         margin: 0;
+        @include _991 {
+          font-size: 46px;
+        }
       }
     }
   }
@@ -353,6 +466,19 @@ html {
         right: 0;
       }
     }
+
+    &-blue {
+      &:after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: url("/img/icon/link-arrow-b.svg") no-repeat center;
+        background-size: auto;
+        position: absolute;
+        top: 6px;
+        right: 0;
+      }
+    }
   }
 
   .right-menu {
@@ -365,9 +491,18 @@ html {
     left: 50px;
     bottom: 70px;
     z-index: 1000;
+    @include _1170 {
+      left: 15px;
+    }
 
     .menu-item {
       margin: 0 auto 30px auto;
+      @include _1024 {
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
 
     .sharing {
@@ -406,6 +541,31 @@ html {
     padding: 43px 0 53px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 
+    .navbar-brand {
+      z-index: 1;
+    }
+
+    @include _1170 {
+      margin: 155px 15px 0 15px;
+      @include _991 {
+        flex-direction: column;
+        @include _600 {
+          .footer-logo {
+            order: 1;
+          }
+          .to-up {
+            order: 2;
+          }
+          .footer-copyright {
+            order: 3;
+            width: 100%;
+            text-align: right;
+            margin: 0 0 10px 0;
+          }
+        }
+      }
+    }
+
     &-column {
       width: 50%;
       display: flex;
@@ -417,10 +577,49 @@ html {
       .slide-contact {
         max-width: 100%;
         margin: 0 0 0 auto;
+        @include _1170 {
+          flex-direction: column;
+          .link-phone {
+            margin: 10px 0 0 0;
+
+            &:before {
+              content: none;
+            }
+          }
+          @include _991 {
+            width: 100%;
+          }
+        }
 
         .link {
           &:first-child {
             margin: auto 50px auto 0;
+          }
+
+          @include _991 {
+            margin: 0 0 0 auto;
+            width: auto;
+            &:first-child {
+              margin: 0 0 10px auto;
+              width: auto;
+            }
+          }
+        }
+      }
+
+      @include _1170 {
+        &:first-child {
+          width: 70%;
+        }
+        &:last-child {
+          width: 30%;
+        }
+        @include _991 {
+          &:first-child {
+            width: 100%;
+          }
+          &:last-child {
+            width: 100%;
           }
         }
       }
@@ -440,10 +639,17 @@ html {
   }
 
   .portfolio-modal {
+    &.show {
+      display: flex !important;
+    }
+
     .modal-dialog {
       max-width: 100%;
       height: 100vh;
-      margin: auto;
+      margin: auto 0;
+      @include _991 {
+        height: auto;
+      }
 
       .modal-content {
         height: 100%;
@@ -453,12 +659,21 @@ html {
 
         .modal-body {
           padding: 90px 120px 86px 0;
+          @include _991 {
+            padding: 30px 20px 30px 0;
+          }
 
           .swiper {
             &-container {
               height: 100%;
               padding: 0 0 0 190px;
               margin: 0;
+              @include _1170 {
+                height: auto;
+                @include _600 {
+                  padding: 90px 0 90px 20px;
+                }
+              }
             }
 
             &-slide {
@@ -476,10 +691,18 @@ html {
                 &:first-child {
                   width: 67%;
                   margin: 0 30px 0 0;
+                  @include _1170 {
+                    width: 100%;
+                    margin: 0;
+                    height: auto;
+                  }
 
                   img {
                     width: 100%;
                     height: 100%;
+                    @include _1170 {
+                      height: auto;
+                    }
                   }
                 }
 
@@ -487,6 +710,11 @@ html {
                   width: 30%;
                   padding: 33px 0 0 0;
                   border-top: 3px solid $color-green;
+                  @include _1170 {
+                    width: 100%;
+                    margin: 20px 0 0 0;
+                    padding: 20px 0 0 0;
+                  }
 
                   .title {
                     margin: 0 0 20px 0;
@@ -500,6 +728,9 @@ html {
               top: auto;
               bottom: 0;
               left: 60px;
+              @include _600 {
+                left: 20px;
+              }
 
               &-current {
                 color: $color-white;
@@ -516,6 +747,15 @@ html {
               left: 50px;
               right: auto;
               top: 35%;
+              @include _767 {
+                top: 35%;
+                @include _600 {
+                  top: auto;
+                  left: auto;
+                  right: 0;
+                  bottom: 0;
+                }
+              }
             }
 
             &-button-prev {
@@ -525,6 +765,15 @@ html {
               top: 53%;
               left: 50px;
               right: auto;
+              @include _767 {
+                top: 53%;
+                @include _600 {
+                  top: auto;
+                  left: auto;
+                  right: 75px;
+                  bottom: 0;
+                }
+              }
             }
           }
 
@@ -533,6 +782,9 @@ html {
             position: absolute;
             left: 50px;
             z-index: 10;
+            @include _600 {
+              left: 20px;
+            }
           }
         }
       }
@@ -545,6 +797,12 @@ html {
       max-width: 400px;
       height: 100vh;
       background: $color-black;
+      @include _991 {
+        height: auto;
+        @include _480 {
+          max-width: 100%;
+        }
+      }
 
       .modal-content {
         height: 100%;
@@ -555,6 +813,9 @@ html {
 
         .modal-body {
           padding: 50px 50px 30px 50px;
+          @include _480 {
+            padding: 50px 15px 30px 15px;
+          }
 
           .btn-modal {
             padding: 0;
@@ -570,6 +831,12 @@ html {
       margin: 0 auto 0 0;
       max-width: 400px;
       height: 100vh;
+      @include _991 {
+        height: 100%;
+        @include _480 {
+          max-width: 100%;
+        }
+      }
 
       .modal-content {
         height: 100%;
@@ -581,37 +848,47 @@ html {
           top: 35%;
           right: 60px;
           bottom: 0;
+          @include _1170 {
+            top: 155px;
+          }
 
           .menu-item {
             display: flex;
-
-            a {
-              display: flex;
-
-              svg {
-                margin: auto 20px auto 0;
-                width: -webkit-fill-available;
-              }
+            cursor: pointer;
 
 
-              span {
-                font-family: Gilroy, sans-serif;
-                font-style: normal;
-                font-weight: 900;
-                font-size: 10px;
-                line-height: 180%;
-                letter-spacing: 0.2em;
-                text-transform: uppercase;
+            svg {
+              margin: auto 20px auto 0;
+            }
 
-                color: $color-white;
-                margin: auto 0;
 
-                opacity: 0.3;
-              }
+            span {
+              font-family: Gilroy, sans-serif;
+              font-style: normal;
+              font-weight: 900;
+              font-size: 10px;
+              line-height: 180%;
+              letter-spacing: 0.2em;
+              text-transform: uppercase;
+
+              color: $color-white;
+              margin: auto 0;
+
+              opacity: 0.3;
             }
           }
         }
       }
+    }
+  }
+
+  .modal-open {
+    * > {
+      overflow: hidden !important;
+    }
+
+    .menu-modal {
+      overflow-y: hidden;
     }
   }
 
@@ -641,6 +918,10 @@ html {
           outline: none;
           box-shadow: none;
           border-bottom: 1px solid rgba(255, 255, 255, 1);
+        }
+
+        @include _480 {
+          font-size: 14px;
         }
       }
 
@@ -712,6 +993,7 @@ html {
           &-input {
             height: auto !important;
             width: auto !important;
+            font-size: 10px;
           }
 
           &-label {
@@ -732,6 +1014,9 @@ html {
             border: none;
             border-radius: 0;
             background: transparent;
+
+            white-space: nowrap;
+            overflow: hidden;
 
             &:before {
               content: '';
