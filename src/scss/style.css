@@ -1287,6 +1287,9 @@ html .navbar-nav:first-child .nav-item:last-child {
   border-left: 1px solid #161A25;
   border-right: 1px solid #161A25;
 }
+html .navbar-nav:first-child .nav-item .nav-link {
+  margin: 0 30px;
+}
 html .navbar-nav:last-child {
   margin: 0 0 0 35px;
 }

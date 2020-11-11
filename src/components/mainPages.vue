@@ -338,7 +338,8 @@
             </div>
         </div>
         <div class="iframe">
-            <iframe src="https://www.google.com/maps/d/embed?mid=1lIJaYLf3myoMBkbgt0i58B2J8U22QxsM"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1123.0314594510598!2d37.63575650832677!3d55.74003575508402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54ae34ba0b95f%3A0xa2d948c469046984!2z0J7Qt9C10YDQutC-0LLRgdC60LDRjyDQvdCw0LEuLCAyNCwg0JzQvtGB0LrQstCwLCAxMTUxODQ!5e0!3m2!1sru!2sru!4v1605124504466!5m2!1sru!2sru"
+                    frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>
     </div>
 </template>
@@ -525,6 +526,7 @@
         .iframe {
             width: 100vw;
             height: 50vh;
+            border-top: 10px solid $color-white;
 
             iframe {
                 width: 100%;

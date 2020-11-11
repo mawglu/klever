@@ -59,7 +59,16 @@
 
     .fade-enter-to {
         margin-top: -100vh;
-        z-index: 100;
+        z-index: 2000;
+
+        .right-menu {
+            opacity: 0;
+        }
+
+        .navbar {
+            opacity: 0;
+        }
+
     }
 
     .fade-enter-active,
@@ -77,16 +86,18 @@
 
     .anti-fade-enter {
         margin-top: -200vh;
+
     }
 
     .anti-fade-enter-to {
         margin-top: -100vh;
-        z-index: 100;
+        z-index: 2000;
     }
 
     .anti-fade-enter-active {
         position: absolute;
         transition: margin-top $animation-time;
+
     }
 
     .anti-fade-leave-active {
