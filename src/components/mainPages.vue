@@ -536,6 +536,7 @@
     }
 
     .page {
+        height: 100%;
         background: url("/img/blob.png") no-repeat right 0 bottom 0;
         transition: all .3s ease-in-out;
         @include _1170 {
