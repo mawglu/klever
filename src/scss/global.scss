@@ -1,5 +1,7 @@
 @import "mixin";
 @import "media_mixin";
+@import "gilroy_font";
+@import "druk_font";
 
 $color-green: #D2FF57;
 $color-pink: #F000FE;
@@ -13,6 +15,9 @@ html {
 
   @include _1170 {
     height: 100%;
+    @include _600 {
+      height: auto;
+    }
 
     body {
       height: 100%;
@@ -26,27 +31,12 @@ html {
       }
     }
   }
-  //@include _767 {
-  //  height: auto;
-  //
-  //  body {
-  //    height: auto;
-  //
-  //    #app {
-  //      height: auto;
-  //
-  //      .page {
-  //        height: auto;
-  //      }
-  //    }
-  //  }
-  //}
 
   &::-webkit-scrollbar {
     width: 0 !important;
   }
 
-  > * {
+  & > * {
     &::-webkit-scrollbar {
       width: 0 !important;
     }
@@ -72,6 +62,7 @@ html {
   }
 
   body {
+    font-family: 'Gilroy', sans-serif;
     background: $color-black;
     color: $color-black;
     overflow-x: hidden;
@@ -97,6 +88,7 @@ html {
   }
 
   h1 {
+    font-family: 'Druk Wide Bold', sans-serif;
     font-weight: bold;
     font-size: 80px;
     line-height: 110%;
@@ -106,6 +98,7 @@ html {
   }
 
   h2 {
+    font-family: 'Druk Wide Bold', sans-serif;
     font-weight: bold;
     font-size: 60px;
     line-height: 150%;
@@ -115,6 +108,7 @@ html {
   }
 
   h4 {
+    font-family: 'Druk Wide Bold', sans-serif;
     font-weight: 500;
     font-size: 24px;
     line-height: 44px;
@@ -229,6 +223,7 @@ html {
   .circle {
     display: flex;
     border-radius: 50%;
+    transition: all .2s ease-in-out;
 
     &-white {
       background: #FFFFFF;
@@ -420,6 +415,7 @@ html {
       }
 
       .nubmer {
+        font-family: 'Druk Wide Bold', sans-serif;
         font-weight: bold;
         font-size: 80px;
         line-height: normal;
@@ -451,6 +447,9 @@ html {
         position: absolute;
         top: 6px;
         right: 0;
+        @include _600 {
+          top: 0;
+        }
       }
     }
 
@@ -464,6 +463,9 @@ html {
         position: absolute;
         top: 6px;
         right: 0;
+        @include _600 {
+          top: 0;
+        }
       }
     }
 
@@ -477,6 +479,9 @@ html {
         position: absolute;
         top: 6px;
         right: 0;
+        @include _600 {
+          top: 0;
+        }
       }
     }
   }
@@ -508,6 +513,16 @@ html {
     .sharing {
       margin: auto auto 0 auto;
       cursor: pointer;
+
+      &.active {
+        .circle {
+          background: $color-white;
+
+          svg {
+            filter: invert(100%);
+          }
+        }
+      }
     }
   }
 
@@ -531,6 +546,8 @@ html {
       }
     }
   }
+
+
 
   .footer {
     position: relative;
@@ -689,8 +706,8 @@ html {
 
               .column {
                 &:first-child {
-                  width: 67%;
-                  margin: 0 30px 0 0;
+                  width: 50%;
+                  margin: 0 30px 0 auto;
                   @include _1170 {
                     width: 100%;
                     margin: 0;
@@ -707,6 +724,7 @@ html {
                 }
 
                 &:last-child {
+                  margin: 0 auto 0 0;
                   width: 30%;
                   padding: 33px 0 0 0;
                   border-top: 3px solid $color-green;
@@ -717,6 +735,10 @@ html {
                   }
 
                   .title {
+                    font-family: 'Druk Wide Bold', sans-serif;
+                    font-weight: bold;
+                    font-size: 20px;
+                    line-height: 150%;
                     margin: 0 0 20px 0;
                   }
                 }
@@ -845,7 +867,7 @@ html {
         background: linear-gradient(194.04deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), #141925;
 
         .right-menu {
-          top: 35%;
+          top: 23%;
           right: 60px;
           bottom: 0;
           @include _1170 {
@@ -1077,6 +1099,43 @@ html {
 
       .error {
         opacity: 1;
+      }
+    }
+  }
+
+  .bg-pic {
+    position: absolute;
+
+    &-wrap {
+      position: absolute;
+      width: 100%;
+      height: 120vh;
+      top: 0;
+      left: 0;
+      z-index: 5;
+
+      background: linear-gradient(180deg, rgba(22, 26, 37, 0) 0%, #161A25 100%);
+
+      &:before {
+        content: '';
+        width: 100vw;
+        height: 65vh;
+        background: linear-gradient(180deg, #161A25 0%, rgba(22, 26, 37, 0) 100%);
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 5;
+      }
+
+      &:after {
+        content: '';
+        width: 100vw;
+        height: 250px;
+        background: linear-gradient(180deg, rgba(22, 26, 37, 0) 0%, #161A25 100%);
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 5;
       }
     }
   }

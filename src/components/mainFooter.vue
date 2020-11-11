@@ -2,7 +2,7 @@
     <div class="footer">
         <div class="footer-column">
             <div class="to-up my-auto">
-                <div class="circle circle-60 circle-transparent circle-white-br">
+                <div class="circle circle-60 circle-transparent circle-white-br" @click="scrollTop">
                     <svg width="21" height="16" class="m-auto" viewBox="0 0 21 16" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path d="M20.4039 8.8741C20.7944 8.48357 20.7944 7.85041 20.4039 7.45989L14.0399 1.09592C13.6494 0.7054 13.0162 0.7054 12.6257 1.09592C12.2352 1.48645 12.2352 2.11961 12.6257 2.51014L18.2826 8.16699L12.6257 13.8238C12.2352 14.2144 12.2352 14.8475 12.6257 15.2381C13.0162 15.6286 13.6494 15.6286 14.0399 15.2381L20.4039 8.8741ZM0.302734 9.16699H19.6968V7.16699H0.302734V9.16699Z"
@@ -45,8 +45,10 @@
         </div>
         <div class="footer-column">
             <div class="slide-contact my-auto">
-                <a href="#" class="link link-w link-mail">E: andrey@klever-studio.ru</a>
-                <a href="#" class="link link-w link-phone">
+                <a href="mailto:andrey@klever-studio.ru" class="link link-w link-mail">
+                    E: andrey@klever-studio.ru
+                </a>
+                <a href="tel:+79263397547" class="link link-w link-phone">
                     <i class="wa"/>
                     <i class="tg"/>
                     T: +7 (926) 339 75 47
@@ -58,10 +60,41 @@
 
 <script>
     export default {
-        name: "mainFooter"
+        name: "mainFooter",
+        methods: {
+            pusherTop(path) {
+                this.$root.$emit('change-animation-direction', {
+                    direction: 'top',
+                });
+                this.$router.push(path);
+            },
+            scrollTop() {
+                document.getElementById('app').scrollIntoView({
+                    block: 'start', behavior: 'smooth'
+                });
+            }
+        },
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "/src/scss/style.scss";
 
+    .footer {
+        .circle {
+            &-transparent {
+                background: transparent;
+                transition: all .2s ease-in-out;
+
+                &:hover,
+                &:focus {
+                    background: $color-white;
+
+                    svg {
+                        filter: invert(100%);
+                    }
+                }
+            }
+        }
+    }
 </style>

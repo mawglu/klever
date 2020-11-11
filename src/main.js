@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import VueMask from 'v-mask'
 import Vuelidate from 'vuelidate'
 import {BModal, BootstrapVue,} from 'bootstrap-vue'
+import VueSocialSharing from 'vue-social-sharing'
+import VueScrollmagic from 'vue-scrollmagic'
 
 Vue.config.productionTip = false;
 
@@ -11,6 +13,14 @@ Vue.use(VueRouter);
 Vue.use(VueMask);
 Vue.use(Vuelidate);
 Vue.use(BootstrapVue, BModal);
+Vue.use(VueScrollmagic);
+
+Vue.use(VueSocialSharing, {
+    networks: {
+        instagram: 'https://www.instagram.com/',
+    }
+});
+
 
 const router = new VueRouter({
     mode: 'history',
@@ -23,7 +33,7 @@ const router = new VueRouter({
         {
             path: '/season',
             name: 'season',
-            component: () => import('./components/seasonPage'),
+            component: () => import('./components/seasonSlider'),
         },
         {
             path: '/services-polygraphy',

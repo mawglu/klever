@@ -1,7 +1,6 @@
 <template>
     <div class="bg-black h-vh-100 w-vw-100" @wheel="onwheel">
         <div class="page-content container-fluid">
-            <right-menu/>
             <b-row>
                 <b-col cols="12">
                     <b-navbar variant="faded" toggleable="lg" type="light">
@@ -77,6 +76,7 @@
                                     </b-dropdown-item>
                                 </b-nav-item-dropdown>
                                 <b-nav-item @click="pusherTop('/about')">Агентство</b-nav-item>
+                                <b-nav-item @click="pusherTop('/portfolio')">Клиенты</b-nav-item>
                                 <b-nav-item @click="pusherTop('/contacts')">Контакты</b-nav-item>
                                 <b-nav-item @click="pusherTop('/blog')">Блог</b-nav-item>
                             </b-navbar-nav>
@@ -96,8 +96,7 @@
                         <p>
                             выстраиаем отношения на позитивной участвуем в проектах, в которых всегда даем обратную
                             связь и поможем найти оптимальное решение выстраиаем отношения на позитивной участвуем в
-                            проектах, в которых всегда даем обратную
-                            связь и поможем найти оптимальное решение
+                            проектах, в которых всегда даем обратную связь и поможем найти оптимальное решение
                         </p>
                     </div>
                 </b-col>
@@ -115,9 +114,6 @@
                 windowWidth: window.innerWidth,
                 mobileSizeBreakpoint: 991,
             }
-        },
-        components: {
-            rightMenu: () => import(/* webpackChunkName: "right-menu" */'./rightMenu'),
         },
         methods: {
             onwheel(ev) {
@@ -155,52 +151,54 @@
 <style scoped lang="scss">
     @import "/src/scss/style.scss";
 
-    .page-content {
-        height: 100%;
-        width: 100%;
-        background: url("/img/about-bg.png") no-repeat center;
-        background-size: cover;
-        overflow: hidden;
-        @include _600 {
-            height: 100vh;
-            overflow-y: scroll;
-            .right-menu {
-                max-height: 60vh !important;
+    html {
+        .page-content {
+            height: 100%;
+            width: 100%;
+            background: url("/img/about.png") no-repeat center;
+            background-size: cover;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            @include _991 {
+                height: auto;
+                overflow-y: scroll;
             }
-        }
-    }
 
-    h1 {
-        margin: 50px 0 35px 210px;
-        position: relative;
-        z-index: 1;
-        @include _1170 {
-            margin: 50px 0 35px 120px;
-            @include _767 {
-                margin: 50px 0 35px 90px;
-            }
-        }
-    }
-
-    .floating {
-        p {
-            font-weight: bold;
-            font-size: 80px;
-            line-height: 150%;
-
-            letter-spacing: 0.1em;
-
-            color: transparent;
-            text-align: justify;
-            -webkit-text-stroke: 1px $color-white;
-            @include _1024 {
-                font-size: 4.2em;
-                @include _991 {
-                    font-size: 3.2em;
+            h1 {
+                font-size: 80px;
+                line-height: 140%;
+                margin: 50px 0 35px 210px;
+                position: relative;
+                z-index: 1;
+                @include _1170 {
+                    margin: 50px 0 35px 120px;
                     @include _767 {
-                        margin: 0 15px 0 90px;
-                        @include _600 {
-                            font-size: 2.2em;
+                        margin: 50px 0 35px 90px;
+                    }
+                }
+            }
+
+            .floating {
+                p {
+                    font-family: 'Druk Wide Bold', sans-serif;
+                    font-weight: bold;
+                    font-size: 80px;
+                    line-height: 120%;
+                    letter-spacing: 0.1em;
+
+                    color: transparent;
+                    text-align: justify;
+                    -webkit-text-stroke: 1px $color-white;
+                    @include _1024 {
+                        font-size: 4.2em;
+                        @include _991 {
+                            font-size: 3.2em;
+                            @include _767 {
+                                margin: 0 15px 0 90px;
+                                @include _600 {
+                                    font-size: 2.2em;
+                                }
+                            }
                         }
                     }
                 }

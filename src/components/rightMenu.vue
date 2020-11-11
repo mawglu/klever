@@ -1,6 +1,6 @@
 <template>
     <div class="right-menu">
-        <div class="menu-item">
+        <div class="menu-item" v-on:mouseenter="showModal('right-menu')">
             <a v-b-modal.right-menu>
                 <svg width="41" height="42" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -18,7 +18,7 @@
                 </svg>
             </a>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" v-on:mouseenter="showModal('right-menu')">
             <a v-b-modal.right-menu>
                 <svg width="41" height="42" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -36,7 +36,7 @@
                 </svg>
             </a>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" v-on:mouseenter="showModal('right-menu')">
             <a v-b-modal.right-menu>
                 <svg width="41" height="42" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -54,20 +54,7 @@
                 </svg>
             </a>
         </div>
-        <div class="sharing">
-            <a href="#">
-                <div class="circle circle-60 circle-white-br">
-                    <svg width="20" height="26" viewBox="0 0 20 26" fill="none" class="m-auto"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="15.8791" cy="12.9839" r="3.12131" stroke="white" stroke-width="2"/>
-                        <circle cx="4.52366" cy="21.4529" r="3.12131" stroke="white" stroke-width="2"/>
-                        <circle cx="4.52512" cy="4.51487" r="3.12131" stroke="white" stroke-width="2"/>
-                        <path d="M7.2085 6.41211L13.3483 10.8619" stroke="white" stroke-width="2"/>
-                        <path d="M7.2085 19.5557L13.3483 15.1059" stroke="white" stroke-width="2"/>
-                    </svg>
-                </div>
-            </a>
-        </div>
+        <share-network/>
         <main-menu/>
     </div>
 </template>
@@ -76,12 +63,121 @@
 
     export default {
         name: "rightMenu",
+        data: () => {
+            return {
+                show: false,
+                windowWidth: window.innerWidth,
+                mobileSizeBreakpoint: 991,
+                sharing: {
+                    url: 'https://klever-print.ru/',
+                },
+                networks: [
+                    {network: 'instagram', name: 'Instagram', icon: 'icon inst'},
+                    {network: 'vk', name: 'Vk', icon: 'icon vk'},
+                    {network: 'facebook', name: 'Facebook', icon: 'icon fb'},
+                ]
+            }
+        },
         components: {
-            mainMenu: () => import(/* webpackChunkName: "main-menu" */'./mainMenu')
+            mainMenu: () => import(/* webpackChunkName: "main-menu" */'./mainMenu'),
+            shareNetwork: () => import(/* webpackChunkName: "share-network" */'./shareNetwork')
+        },
+        methods: {
+            showModal(id) {
+                this.$bvModal.show(id);
+            },
         }
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    .backInUp {
+        animation: backInUp 1.5s;
+        animation-timing-function: ease-out;
+    }
 
+
+    .backInUp-enter-active {
+        animation: backInUp-in .5s;
+    }
+
+    .backInUp-leave-active {
+        animation: backInUp-in .5s reverse;
+    }
+
+
+    @-webkit-keyframes backInUp-in {
+        0% {
+            transform: translateY(1200px) scale(.7);
+            opacity: .7;
+        }
+
+        80% {
+            transform: translateY(0px) scale(.7);
+            opacity: .7;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes backInUp-in {
+        0% {
+            transform: translateY(1200px) scale(.7);
+            opacity: .7;
+        }
+
+        80% {
+            transform: translateY(0px) scale(.7);
+            opacity: .7;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @-webkit-keyframes backOutDown {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        20% {
+            transform: translateY(0px) scale(.7);
+            opacity: .7;
+        }
+
+        100% {
+            transform: translateY(700px) scale(.7);
+            opacity: .7;
+        }
+    }
+
+    @keyframes backOutDown {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        20% {
+            transform: translateY(0px) scale(.7);
+            opacity: .7;
+        }
+
+        100% {
+            transform: translateY(700px) scale(.7);
+            opacity: .7;
+        }
+    }
+
+    .backOutDown {
+        -webkit-animation: backOutDown 1.5s;
+        animation: backOutDown 1.5s;
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
 </style>

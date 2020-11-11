@@ -1,14 +1,14 @@
 <template>
-    <div class="bg-white">
-        <main-feedback/>
-        <div class="page container-fluid">
-            <div class="page-main" ref="headerSlider">
+    <div @wheel="onwheel" class="bg-black" ref="seasonSliderRoot">
+        <div class="page-content">
+            <div class="container-fluid">
+                <right-menu class="right-menu--season"/>
                 <b-row>
                     <b-col cols="12">
                         <b-navbar variant="faded" toggleable="lg" type="light">
                             <b-navbar-brand @click="pusherTop('/')">
-                                <img src="/img/icon/icon-logo.svg" alt="Klever studio">
-                                <img src="/img/icon/icon-studio.svg" alt="Klever studio">
+                                <img src="/img/icon/icon-logo-opacity.svg" alt="Klever studio">
+                                <img src="/img/icon/icon-studio-w.svg" alt="Klever studio">
                             </b-navbar-brand>
 
                             <b-navbar-toggle target="nav-collapse"/>
@@ -88,203 +88,158 @@
                             </b-collapse>
                         </b-navbar>
                     </b-col>
-                    <b-col cols="12">
-                        <div class="social">
-                            <div class="social-item">
-                                <a href="#" target="_blank" referrerpolicy="no-referrer">
-                                    <i class="icon inst"/>
-                                </a>
-                            </div>
-                            <div class="social-item">
-                                <a href="#" target="_blank" referrerpolicy="no-referrer">
-                                    <i class="icon vk"/>
-                                </a>
-                            </div>
-                            <div class="social-item">
-                                <a href="#" target="_blank" referrerpolicy="no-referrer">
-                                    <i class="icon fb"/>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="blog">
-                            <h1>
-                                Блог Klever
-                            </h1>
-                            <div class="blog-wrapper">
-                                <a class="blog-item" @click="showModal('blog-1')">
-                                    <img src="/img/3.jpg">
-                                    <div class="title">
-                                        Про сайты
-                                    </div>
-                                    <div class="subtitle">
-                                        Разработка высоконагруженного портала для klever-studio.ru
-                                    </div>
-                                </a>
-                                <a class="blog-item">
-                                    <img src="/img/1.jpg">
-                                    <div class="title">
-                                        Про сайты
-                                    </div>
-                                    <div class="subtitle">
-                                        Разработка высоконагруженного портала для klever-studio.ru
-
-                                    </div>
-                                </a>
-                                <a class="blog-item">
-                                    <img src="/img/2.jpg">
-                                    <div class="title">
-                                        Про сайты
-                                    </div>
-                                    <div class="subtitle">
-                                        Разработка высоконагруженного портала для klever-studio.ru
-
-                                    </div>
-                                </a>
-                                <a class="blog-item">
-                                    <img src="/img/3.jpg">
-                                    <div class="title">
-                                        Про сайты
-                                    </div>
-                                    <div class="subtitle">
-                                        Разработка высоконагруженного портала для klever-studio.ru
-                                    </div>
-                                </a>
-                                <a class="blog-item">
-                                    <img src="/img/3.jpg">
-                                    <div class="title">
-                                        Про сайты
-                                    </div>
-                                    <div class="subtitle">
-                                        Разработка высоконагруженного портала для klever-studio.ru
-                                    </div>
-                                </a>
-                                <a class="blog-item">
-                                    <img src="/img/1.jpg">
-                                    <div class="title">
-                                        Про сайты
-                                    </div>
-                                    <div class="subtitle">
-                                        Разработка высоконагруженного портала для klever-studio.ru
-
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </b-col>
                 </b-row>
-            </div>
-        </div>
-        <b-modal id="blog-1" size="xl" hide-header hide-footer
-                 modal-class="portfolio-modal"
-        >
-            <b-button @click="hideModal('blog-1')" variant="modal">
-                <div class="circle circle-80 circle-transparent circle-white-br d-flex">
-                    <svg class="m-auto" width="17" height="16" viewBox="0 0 17 16"
-                         fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.60547 15.0713L15.7476 0.929154" stroke="white"
-                              stroke-width="2"/>
-                        <path d="M1.60547 0.928711L15.7476 15.0708" stroke="white"
-                              stroke-width="2"/>
-                    </svg>
+                <div id="pinContainer">
+                    <div class="static-block" :style="'z-index:' + (slides.length + 1)">
+                        <section v-for="(slide, index) in slides" :key="'1' + slide.title"
+                                 :ref="'slideVertical' + (slides.length === (index + 1) ? '_last' : '')"
+                                 class="panel vertical"
+                                 :style="'z-index:' + ((slides.length * 2 +1) - index)"
+                        >
+                            <div class='title' ref="slideTitle">
+                                <h1>{{ slide.title }}</h1>
+                                <div class="btn-group">
+                                    <a :href="slide.href" target="_blank" referrerpolicy="no-referrer"
+                                       class="d-flex flex-wrap flex-md-nowrap">
+                                        <div class="circle circle-80 circle-green">
+                                            <svg width="21" height="16" class="m-auto" viewBox="0 0 21 16" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.4039 8.8741C20.7944 8.48357 20.7944 7.85041 20.4039 7.45989L14.0399 1.09592C13.6494 0.7054 13.0162 0.7054 12.6257 1.09592C12.2352 1.48645 12.2352 2.11961 12.6257 2.51014L18.2826 8.16699L12.6257 13.8238C12.2352 14.2144 12.2352 14.8475 12.6257 15.2381C13.0162 15.6286 13.6494 15.6286 14.0399 15.2381L20.4039 8.8741ZM0.302734 9.16699H19.6968V7.16699H0.302734V9.16699Z"
+                                                      fill="#161A25"/>
+                                            </svg>
+                                        </div>
+                                        <div class="text my-auto">
+                                            подробно
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <section v-for="(slide, index) in slides" :key="'2' + slide.title"
+                             class="panel horizontal"
+                             :ref="'slideHorisontal' + (slides.length === (index + 1) ? '_last' : '')"
+                             :style="'z-index:' + (slides.length - index) + '; ' + (slides.length === (index + 1) ? 'left:55vw;right:auto;' : '')">
+                        <img :src="slide.img"/>
+                    </section>
                 </div>
-            </b-button>
-            <swiper ref="portfolioSwiper" :options="swiperOptions">
-                <swiper-slide>
-                    <div class="column">
-                        <img src="/img/service-slide-1.png">
-                    </div>
-                    <div class="column">
-                        <div class="title text text-lg-20 text-white font-w-800">
-                            Современные технологии
-                        </div>
-                        <div class="subtitle text text-lg-18 text-white font-w-500 text-gilroy">
-                            Достигли такого уровня,
-                            что дальнейшее развитие различных форм деятельности влечет
-                            за собой процесс внедрения и модернизации распределения
-                            внутренних резервов и ресурсов. Повседневная практика
-                            показывает, что граница обучения кадров выявляет срочную
-                            потребность системы обучения кадров, соответствующей
-                            насущным потребностям.
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="column">
-                        <img src="/img/service-slide-2.png">
-                    </div>
-                    <div class="column">
-                        <div class="title text text-lg-20 text-white font-w-800">
-                            Современные технологии
-                        </div>
-                        <div class="subtitle text text-lg-18 text-white font-w-500 text-gilroy">
-                            Достигли такого уровня,
-                            что дальнейшее развитие различных форм деятельности влечет
-                            за собой процесс внедрения и модернизации распределения
-                            внутренних резервов и ресурсов. Повседневная практика
-                            показывает, что граница обучения кадров выявляет срочную
-                            потребность системы обучения кадров, соответствующей
-                            насущным потребностям.
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="column">
-                        <img src="/img/service-slide-3.png">
-                    </div>
-                    <div class="column">
-                        <div class="title text text-lg-20 text-white font-w-800">
-                            Современные технологии
-                        </div>
-                        <div class="subtitle text text-lg-18 text-white font-w-500 text-gilroy">
-                            Достигли такого уровня,
-                            что дальнейшее развитие различных форм деятельности влечет
-                            за собой процесс внедрения и модернизации распределения
-                            внутренних резервов и ресурсов. Повседневная практика
-                            показывает, что граница обучения кадров выявляет срочную
-                            потребность системы обучения кадров, соответствующей
-                            насущным потребностям.
-                        </div>
-                    </div>
-                </swiper-slide>
-                <div class="swiper-pagination" slot="pagination"></div>
-                <div class="swiper-button-prev" slot="button-prev"></div>
-                <div class="swiper-button-next" slot="button-next"></div>
-            </swiper>
-        </b-modal>
-        <main-footer/>
+            </div>
+            <main-footer/>
+        </div>
     </div>
 </template>
-
 <script>
-    import {Swiper, SwiperSlide} from "vue-awesome-swiper";
-    import 'swiper/dist/css/swiper.min.css'
+    import {TweenMax, TimelineMax, Linear, Power4} from 'gsap'
 
     export default {
-        name: "blogPage",
-        data: () => {
+        name: 'sectionScroll',
+        data() {
             return {
-                swiperOptions: {
-                    observer: true,
-                    observeParents: true,
-                    slidesPerView: 1,
-                    pagination: {
-                        el: '.swiper-pagination',
-                        type: 'fraction'
+                isFirst: true,
+                slides: [
+                    {
+                        title: 'Интенсивным развитием, трудно недооценить',
+                        img: '/img/bg.png',
+                        href: 'https://klever-print.ru/'
                     },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev'
-                    }
-                },
+                    {
+                        title: 'Cтудия производства рекламы',
+                        img: '/img/bg-2.png',
+                        href: 'https://klever-print.ru/'
+                    },
+                    {
+                        title: 'Сувенирная продукция живет сегодня здесь и сейчас',
+                        img: '/img/bg-3.png',
+                        href: 'https://klever-print.ru/'
+                    },
+                ],
+                scene: null,
             }
         },
         components: {
-            Swiper,
-            SwiperSlide,
+            rightMenu: () => import(/* webpackChunkName: "right-menu" */'./rightMenu'),
             mainFooter: () => import(/* webpackChunkName: "main-footer" */'./mainFooter'),
         },
+        mounted() {
+            this.$nextTick(this.pinContainerScene);
+        },
         methods: {
+            pinContainerScene() {
+                const timeline = new TimelineMax();
+
+                this.$refs.slideVertical.map((value, index) => {
+                    let arrayOfAnimations = [
+                        TweenMax.fromTo(value, 1,
+                            {
+                                y: '0%'
+                            },
+                            {
+                                y: '-100%',
+                                ease: Linear.easeNone
+                            }
+                        ),
+                        TweenMax.fromTo(this.$refs.slideHorisontal[index], 1,
+                            {
+                                x: '100%'
+                            },
+                            {
+                                x: '0%',
+                                ease: Linear.easeNone
+                            }
+                        )
+                    ];
+
+                    if (value.nextElementSibling !== null && typeof value.nextElementSibling.firstElementChild !== 'undefined') {
+                        arrayOfAnimations.push(TweenMax.fromTo(value.nextElementSibling.firstElementChild, 1,
+                            {
+                                x: '-200%',
+                                y: '200%'
+                            },
+                            {
+                                x: '0%',
+                                y: '0%',
+                                ease: Power4.easeIn,
+                            }
+                        ));
+                    }
+
+                    timeline.add(arrayOfAnimations);
+                });
+
+                this.scene = this.$scrollmagic
+                    .scene({
+                        triggerElement: '#pinContainer',
+                        triggerHook: '0',
+                        duration: (this.$refs.slideVertical.length * 100) + '%',
+                    })
+                    .setPin('#pinContainer')
+                    .setTween(timeline)
+                ;
+
+
+                this.$scrollmagic.addScene(this.scene)
+            },
+            onwheel(ev) {
+                if (this.scene.progress() !== 0) {
+                    return;
+                } else if (this.windowWidth <= this.mobileSizeBreakpoint) {
+                    return;
+                } else {
+                    if (ev.deltaY < 0) {
+                        if (typeof this.$refs.seasonSliderRoot !== 'undefined') {
+                            this.$refs.seasonSliderRoot.style.height = '100vh';
+                        }
+
+                        this.$root.$emit('change-animation-direction', {
+                            direction: 'top',
+                        });
+
+                        if (this.$route.name !== 'main') {
+                            this.$router.push('/');
+                        }
+                    }
+                }
+            },
             pusherTop(path) {
                 this.$root.$emit('change-animation-direction', {
                     direction: 'top',
@@ -296,245 +251,194 @@
                     direction: 'bottom',
                 });
                 this.$router.push(path);
-            },
-            showModal(id) {
-                this.$bvModal.show(id);
-            },
-            hideModal(id) {
-                this.$bvModal.hide(id);
             }
-        }
+        },
+
     }
 </script>
 
-<style lang="scss">
-    @import "./src/scss/style";
 
-    .portfolio-slider {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        margin: 0 0 0 210px;
-        @include _1170 {
-            margin: 0 0 0 140px;
-            @include _768 {
-                margin: 0;
+<style scoped lang='scss'>
+    @import "/src/scss/style.scss";
+
+    html {
+        .page-content {
+            background: black;
+
+            .navbar {
+                padding: 37px 118px 70px 55px;
+                position: fixed;
+                background: transparent;
+                width: 100%;
+                z-index: 10;
+                left: 0;
+                top: 0;
+            }
+
+            .footer {
+                background: black;
+                margin: 0 118px 0 50px;
             }
         }
 
-
-        .slide {
-            width: 49%;
-            display: flex;
-            flex-direction: column;
+        #pinContainer {
+            background: black;
             position: relative;
-            cursor: pointer;
-            margin: 1px;
-            @include _768 {
-                width: 50%;
-                margin: 0;
-                @include _600 {
-                    width: 100%;
-                }
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: auto;
+            right: auto;
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+        }
+
+
+        .static-block {
+            width: 47%;
+            height: 100vh;
+            background: black;
+            z-index: 1;
+            position: absolute;
+            left: 0;
+        }
+
+        .panel {
+            height: 100vh;
+            width: 100%;
+            position: absolute;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3rem;
+            background: black;
+
+            &.vertical,
+            &.last {
+                z-index: 1;
+                width: 100%;
+                min-height: 100vh;
+                left: 0;
+                top: 0;
             }
 
+            &.horizontal,
+            &.last {
+                z-index: 0;
+                width: 53vw;
+                right: 53vw;
 
-            .front {
-                width: 100%;
-                height: 100%;
-                padding: 0;
-                @include _768 {
-                    display: flex;
-                }
 
-                img {
+                .image, img {
+                    max-width: 53vw;
                     width: 100%;
                     height: 100%;
-                    max-width: 614px;
-                    max-height: 384px;
-                    @include _600 {
-                        max-width: 90%;
-                        margin: 0 auto 0 auto;
-                        height: auto;
-                    }
-
                 }
             }
 
-            .back {
-                opacity: 0;
-                padding: 48px 48px 43px 48px;
-                display: flex;
-                flex-direction: row;
-                width: 106%;
-                height: 110%;
-                background: rgba(210, 255, 87, 0.9);
-                border: 20px solid $color-green;
-
-                position: absolute;
-                top: -20px;
-                left: -20px;
-                z-index: 10;
-                transition: all .3s ease-in-out;
-
-                h3 {
-                    font-family: 'Druk Wide Bold', sans-serif;
-                    font-style: normal;
-                    font-weight: bold;
-                    font-size: 30px;
-                    line-height: 36px;
-
-                    color: $color-black;
-                    margin: 0 0 15px 0;
-                }
-
-                @include _768 {
-                    padding: 10px 0 10px 20px;
-                    h3 {
-                        font-size: 1.5em;
-                        line-height: normal;
-                    }
-                }
-            }
-
-            &:hover {
-                .back {
-                    opacity: 1;
-
-                }
-            }
-        }
-    }
-
-    .bg-white {
-        .page {
-            background: transparent;
-
-            &-main {
-                background: transparent;
-            }
-        }
-
-        .footer {
-            border-top: 1px solid rgba(22, 26, 37, 0.2);
-
-            &-column {
-                .text-white,
-                .link-w {
-                    color: $color-black !important;
-
-                    i {
-                        filter: none;
-                        opacity: 1;
-                    }
-                }
-
-                svg {
-                    path {
-                        fill: $color-black !important;
-                    }
-                }
-            }
-
-            .circle-transparent {
-                &:hover {
-                    background: $color-black;
-
-                    svg {
-                        filter: invert(100%);
-                    }
-                }
-            }
-        }
-
-        .blog {
-            overflow: hidden;
-            margin: 0 118px 0 210px;
-            @include _1170 {
-                margin: 0 15px 0 120px;
-                @include _767 {
-                    margin: 0 15px;
-                }
-            }
-
-            h1 {
-                margin: 0 0 42px 0;
-                position: relative;
+            .title {
+                height: 70%;
                 width: 100%;
+                display: flex;
+                flex-direction: column;
 
-                &:after {
-                    content: '';
-                    width: 200px;
-                    height: 2px;
-                    background: $color-green;
+                h1 {
+                    font-family: "Druk Wide Bold", sans-serif;
+                    font-size: 60px;
+                    line-height: 130%;
+                    margin: 60px 0 35px 210px;
                     position: absolute;
-                    right: 0;
-                    top: calc(50% - 1px);
+                    z-index: 1;
+                    text-align: left;
+                    width: 120%;
+                    left: 0;
                     @include _1170 {
-                        width: 100px;
-                        @include _768 {
-                            content: none;
+                        margin: 0 auto 100px 140px;
+                        @include _600 {
+                            max-width: 100%;
+                            font-size: 2.2em;
+                            margin: 0 auto 100px 70px;
+                        }
+                    }
+
+                    &:before {
+                        content: '';
+                        width: 197px;
+                        height: 197px;
+                        background: url("/img/season-h-bg.png") no-repeat center;
+                        background-size: contain;
+                        position: absolute;
+                        left: -5%;
+                        top: -25%;
+                        z-index: 0;
+                        @include _1170 {
+                            left: -5%;
+                            @include _767 {
+                                width: 150px;
+                                height: 150px;
+                                @include _600 {
+                                    left: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .btn-group {
+                    margin: auto 0 85px 210px;
+                    display: flex;
+                    @include _1170 {
+                        margin: 0 auto 85px 140px;
+                        @include _600 {
+                            margin: 0 auto 85px 70px;
+                        }
+                    }
+
+                    a {
+                        margin: auto 50px auto 0;
+                        @include _600 {
+                            margin: auto 10px auto 0;
+                        }
+
+                        & > * {
+                            transition: all .3s ease-in-out;
+                        }
+
+                        .text {
+                            color: $color-white;
+                            font-weight: 900;
+                            font-size: 10px;
+                            line-height: 180%;
+                            letter-spacing: 0.2em;
+                            text-transform: uppercase;
+                            margin: auto 0 auto 20px;
+                            @include _767 {
+                                margin: auto 0 auto 10px;
+                            }
+                        }
+
+                        &:hover {
+                            .circle-green {
+                                background: transparent;
+                                border: 1px solid $color-green;
+
+                                svg {
+                                    path {
+                                        fill: $color-green;
+                                    }
+                                }
+                            }
+
+                            .text {
+                                color: $color-green;
+                            }
                         }
                     }
                 }
             }
-
-            .blog-wrapper {
-                columns: 3;
-                column-gap: 40px;
-                width: 100%;
-                @include _767 {
-                    columns: 2;
-                    column-gap: 20px;
-                    @include _480 {
-                        columns: 1;
-                        column-gap: 0;
-                    }
-                }
-
-                .blog-item {
-                    width: calc(100% / 3);
-                    cursor: pointer;
-
-                    img {
-                        max-width: 100%;
-                        height: auto;
-                    }
-
-                    .title {
-                        font-style: normal;
-                        font-weight: bold;
-                        font-size: 20px;
-                        line-height: 24px;
-                        color: $color-black;
-                        margin: 30px 0 17px 0;
-                    }
-
-                    .subtitle {
-                        font-family: Gilroy, sans-serif;
-                        font-style: normal;
-                        font-weight: 500;
-                        font-size: 18px;
-                        line-height: 150%;
-
-                        color: $color-black;
-                        margin: 0 0 60px 0;
-                    }
-                }
-            }
         }
     }
-
-    html {
-        .footer {
-            @include _1170 {
-                margin: 30px 15px 0 15px;
-            }
-
-            .circle-white-br {
-                border: 1px solid rgb(66 64 64 / 20%);
-            }
-        }
-    }
-
 </style>

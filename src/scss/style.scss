@@ -25,6 +25,7 @@ html {
           margin: auto 10px auto 0;
         }
       }
+
     }
 
     &-toggler {
@@ -33,6 +34,8 @@ html {
 
     &-nav {
       .nav-item {
+        position: relative;
+
         @include _991 {
           text-align: right;
           margin: 0 0 15px 0;
@@ -43,25 +46,42 @@ html {
           font-size: 18px;
           line-height: 22px;
           color: $color-black;
-          padding: 0 15px;
+          margin: 0 15px 5px 15px;
+          padding: 0;
           transition: all .3s ease-in-out;
+          position: relative;
           @include _1170 {
             font-size: 16px;
             line-height: normal;
-            padding: 0 8px;
+            padding: 0 8px 3px 8px;
             @include _991 {
               padding: 0;
             }
-          }
-
-          &:hover {
-            opacity: 0.4;
           }
 
           &:focus {
             outline: none;
           }
 
+          &:before {
+            content: '';
+            width: 0;
+            height: 1px;
+            background: $color-black;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: width .2s ease-in-out;
+          }
+        }
+
+        &:hover {
+          .nav-link {
+            &:before {
+              opacity: 1;
+              width: 100%;
+            }
+          }
         }
 
         .dropdown-toggle {
@@ -91,9 +111,10 @@ html {
 
         &.dropdown {
           .nav-link {
-            padding: 0 30px 0 15px;
+            padding: 0 15px 0 0;
+            margin: 0 15px 5px 0;
             @include _1170 {
-              padding: 0 20px 0 8px;
+              padding: 0 15px 0 0;
               @include _991 {
                 padding: 0 15px 0 0;
               }
@@ -103,13 +124,22 @@ html {
         }
       }
 
+      &:first-child {
+        .nav-item {
+          &:last-child {
+            border-left: 1px solid $color-black;
+            border-right: 1px solid $color-black;
+          }
+        }
+      }
+
       &:last-child {
-        border-left: 1px solid $color-black;
+        //border-left: 1px solid $color-black;
         margin: 0 0 0 35px;
-        padding: 0 0 0 50px;
+        //padding: 0 0 0 50px;
         @include _1170 {
           margin: 0 0 0 15px;
-          padding: 0 0 0 20px;
+          //padding: 0 0 0 20px;
           @include _991 {
             border-left: none;
           }
@@ -141,6 +171,14 @@ html {
               max-width: 60%;
               @include _480 {
                 max-width: 100%;
+              }
+            }
+          }
+
+          li {
+            &:last-child {
+              a {
+                margin: 0;
               }
             }
           }
@@ -199,10 +237,18 @@ html {
         filter: invert(100%);
       }
 
-      .navbar-nav {
+      &-nav {
         .nav-item {
+          &:before {
+            background: $color-white;
+          }
+
           .nav-link {
-            color: white;
+            color: $color-white;
+
+            &:before {
+              background: $color-white;
+            }
           }
 
           .dropdown-toggle {
@@ -214,8 +260,17 @@ html {
           }
         }
 
+        &:first-child {
+          .nav-item {
+            &:last-child {
+              border-left: 1px solid $color-white;
+              border-right: 1px solid $color-white;
+            }
+          }
+        }
+
         &:last-child {
-          border-left: 1px solid white;
+          //border-left: 1px solid white;
           @include _991 {
             border-left: none;
           }
@@ -242,6 +297,7 @@ html {
   .page-item {
     &.item_2 {
       h4 {
+        font-family: 'Gilroy', sans-serif;
         max-width: 55%;
         margin: 25px 0 40px 0;
         @include _1024 {
@@ -253,8 +309,9 @@ html {
 
     &.item_3 {
       h4 {
-        max-width: 37%;
-        margin: 25px 0 50px 0;
+        font-family: 'Gilroy', sans-serif;
+        max-width: 40%;
+        margin: 25px 0;
         @include _1024 {
           margin: auto 0;
           max-width: 100%;
@@ -264,6 +321,7 @@ html {
 
     &.item_4 {
       h1 {
+        font-family: 'Gilroy', sans-serif;
         margin: 0 0 30px 0;
       }
 
@@ -296,7 +354,7 @@ html {
 
     &-item {
       margin: 0 auto 20px 0;
-      display: block;
+      display: flex;
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -412,9 +470,9 @@ html {
         margin: 0 0 0 110px;
         @include _991 {
           height: 100%;
+          margin: 0 0 0 15px;
           @include _600 {
             padding: 100px 0 0 0;
-            margin: 0 0 0 15px;
           }
         }
       }
@@ -516,10 +574,10 @@ html {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      max-width: 55%;
+      max-width: 50%;
       margin: auto 0 45px 0;
       @include _1170 {
-        max-width: 85%;
+        max-width: 75%;
         @include _1024 {
           margin: auto 15px 0 0;
           @include _991 {
@@ -731,13 +789,59 @@ html {
   }
 
   .page-content {
+
     .right-menu {
-      max-height: 50vh;
-      top: 35%;
+      max-height: 65vh;
+      top: 23%;
       @include _1170 {
         top: 155px;
         @include _600 {
+          max-height: 75%;
+        }
+      }
+
+      .social {
+        left: 0;
+        top: 50%;
+
+        &-wrap {
+          margin: auto auto 0 auto;
+        }
+
+        &-item {
+          cursor: pointer;
+          display: flex;
+          width: 40px;
+          height: 40px;
+          margin: 0 auto 10px auto;
+        }
+      }
+
+      &--season {
+        max-height: 63vh;
+        position: fixed;
+        top: 23%;
+        @include _991 {
           max-height: 100%;
+          @include _600 {
+            max-height: 75%;
+            @include _480 {
+              top: 20vh;
+            }
+          }
+        }
+
+        .social {
+          left: 0;
+          top: -10%;
+          position: relative;
+          @include _767 {
+            flex-direction: column;
+            padding: 0;
+            @include _480 {
+              top: 0;
+            }
+          }
         }
       }
     }
@@ -759,20 +863,20 @@ html {
       }
 
 
-      .right-menu {
-        max-height: 50vh;
-        top: 35%;
-        @include _1170 {
-          top: 155px;
-        }
-      }
-
       .underline {
-        margin: 100px 0 0 210px;
+        margin: 0 0 0 210px;
         @include _1170 {
-          margin: 50px 0 0 120px;
+          margin: 0 0 0 120px;
           @include _767 {
-            margin: 50px 0 0 90px;
+            margin: 0 0 0 90px;
+            width: 100%;
+            .text {
+              font-size: 18px;
+              @include _600 {
+                font-size: 12px;
+                color: #ffffff;
+              }
+            }
           }
         }
       }

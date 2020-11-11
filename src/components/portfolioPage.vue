@@ -75,6 +75,7 @@
                                     </b-dropdown-item>
                                 </b-nav-item-dropdown>
                                 <b-nav-item @click="pusherTop('/about')">Агентство</b-nav-item>
+                                <b-nav-item @click="pusherTop('/portfolio')">Клиенты</b-nav-item>
                                 <b-nav-item @click="pusherTop('/contacts')">Контакты</b-nav-item>
                                 <b-nav-item @click="pusherTop('/blog')">Блог</b-nav-item>
                             </b-navbar-nav>
@@ -84,7 +85,7 @@
                         </b-collapse>
                     </b-navbar>
                 </b-col>
-                <b-col cols="12" md="11" lg="11">
+                <b-col cols="12">
                     <h1 class="text-white">
                         Мы рады работать с нашими клиентами и партнерами
                     </h1>
@@ -601,134 +602,168 @@
 <style lang="scss" scoped>
     @import "/src/scss/style.scss";
 
-    h1 {
-        max-width: 840px;
-        margin: 50px 0 80px 210px;
-        position: relative;
-        z-index: 1;
-        @include _1170 {
-            margin: 100px auto 100px 140px;
-            @include _600 {
-                max-width: 100%;
-                font-size: 2.2em !important;
-                margin: 100px auto 100px 70px;
-            }
-        }
-
-        &:before {
-            content: '';
-            width: 197px;
-            height: 197px;
-            background: url("/img/season-h-bg.png") no-repeat center;
-            background-size: contain;
-            position: absolute;
-            left: -10%;
-            top: -20%;
-            z-index: 0;
-            @include _1170 {
-                left: -5%;
-                @include _767 {
-                    width: 150px;
-                    height: 150px;
+    html {
+        .page-content {
+            h1 {
+                font-size: 60px;
+                line-height: 130%;
+                margin: 0 0 80px 210px;
+                position: relative;
+                z-index: 1;
+                @include _1170 {
+                    margin: 0 auto 100px 140px;
                     @include _600 {
-                        left: 0;
+                        max-width: 100%;
+                        font-size: 2.2em !important;
+                        margin: 0 auto 100px 70px;
+                    }
+                }
+
+                &:before {
+                    content: '';
+                    width: 197px;
+                    height: 197px;
+                    background: url("/img/season-h-bg.png") no-repeat center;
+                    background-size: contain;
+                    position: absolute;
+                    left: -5%;
+                    top: -25%;
+                    z-index: 0;
+                    @include _1170 {
+                        left: -5%;
+                        @include _767 {
+                            width: 150px;
+                            height: 150px;
+                            @include _600 {
+                                left: 0;
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
 
-    .portfolio-slider {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        margin: 0 0 0 210px;
-        @include _1170 {
-            margin: 0 0 0 140px;
-            @include _768 {
-                margin: 0;
-            }
-        }
-
-
-        .slide {
-            width: 49%;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            cursor: pointer;
-            margin: 1px;
-            @include _768 {
-                width: 50%;
-                margin: 0;
-                @include _600 {
-                    width: 100%;
-                }
-            }
-
-
-            .front {
-                width: 100%;
-                height: 100%;
-                padding: 0;
-                @include _768 {
-                    display: flex;
-                }
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    max-width: 614px;
-                    max-height: 384px;
-                    @include _600 {
-                        max-width: 90%;
-                        margin: 0 auto 0 auto;
-                        height: auto;
-                    }
-
-                }
-            }
-
-            .back {
-                opacity: 0;
-                padding: 48px 48px 43px 48px;
+            .portfolio-slider {
                 display: flex;
+                flex-wrap: wrap;
                 flex-direction: row;
-                width: 106%;
-                height: 110%;
-                background: rgba(210, 255, 87, 0.9);
-                border: 20px solid $color-green;
-
-                position: absolute;
-                top: -20px;
-                left: -20px;
-                z-index: 10;
-                transition: all .3s ease-in-out;
-
-                h3 {
-                    font-family: Druk Wide Cy, sans-serif;
-                    font-style: normal;
-                    font-weight: bold;
-                    font-size: 30px;
-                    line-height: 36px;
-
-                    color: $color-black;
-                    margin: 0 0 15px 0;
-                }
-
-                @include _768 {
-                    padding: 10px 0 10px 20px;
-                    h3 {
-                        font-size: 1.5em;
-                        line-height: normal;
+                margin: 0 0 0 210px;
+                @include _1170 {
+                    margin: 0 0 0 140px;
+                    @include _991 {
+                        justify-content: space-around;
+                        @include _768 {
+                            margin: 0;
+                        }
                     }
                 }
-            }
 
-            &:hover {
-                .back {
-                    opacity: 1;
 
+                .slide {
+                    width: 33%;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    cursor: pointer;
+                    margin: 1px;
+                    @include _991 {
+                        margin: 0 0 100px 0;
+                        width: 47%;
+                        @include _768 {
+                            @include _600 {
+                                width: 150%;
+                            }
+                        }
+                    }
+
+                    .front {
+                        width: 100%;
+                        height: 100%;
+                        padding: 0;
+                        @include _768 {
+                            display: flex;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            /*max-width: 614px;*/
+                            /*max-height: 384px;*/
+                            @include _600 {
+                                max-width: 90%;
+                                margin: 0 auto 0 auto;
+                                height: auto;
+                            }
+
+                        }
+                    }
+
+                    .back {
+                        opacity: 0;
+                        padding: 48px 20px 43px 20px;
+                        /*padding: 48px 48px 43px 48px;*/
+                        display: flex;
+                        flex-direction: row;
+                        width: 106%;
+                        height: 110%;
+                        background: rgba(210, 255, 87, 0.9);
+                        border: 20px solid $color-green;
+
+                        position: absolute;
+                        top: -20px;
+                        left: -20px;
+                        z-index: 10;
+                        transition: all .3s ease-in-out;
+
+                        h3 {
+                            font-family: 'Druk Wide Bold', sans-serif;
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 30px;
+                            line-height: 36px;
+
+                            color: $color-black;
+                            margin: 0 0 15px 0;
+                        }
+
+                        @include _991 {
+                            opacity: 1;
+                            top: auto;
+                            height: 60%;
+                            bottom: -70px;
+                            padding: 10px 0 10px 20px;
+                            width: 100%;
+                            left: 0;
+                            border: none;
+                            h3 {
+                                font-size: 1.2em;
+                                line-height: normal;
+                                margin: 0 0 5px 0;
+                            }
+                            .text {
+                                font-size: 12px;
+                            }
+                            .circle {
+                                width: 40px;
+                                height: 40px;
+                            }
+                            @include _768 {
+                                height: 80%;
+                                bottom: -100px;
+                                @include _600 {
+                                    height: 50%;
+                                    bottom: -75px;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover,
+                    &:focus {
+                        .back {
+                            opacity: 1;
+
+                        }
+                    }
                 }
             }
         }

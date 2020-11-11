@@ -1,6 +1,6 @@
 <template>
     <div @wheel="onwheel" class="bg-green h-vh-100 w-vw-100">
-        <div class="page container-fluid">
+        <div class="page container-fluid" ref="pageMain">
             <div class="page-main" ref="headerSlider">
                 <b-row>
                     <b-col cols="12">
@@ -77,6 +77,7 @@
                                         </b-dropdown-item>
                                     </b-nav-item-dropdown>
                                     <b-nav-item @click="swiper.slideTo(1, 0, false)">Агентство</b-nav-item>
+                                    <b-nav-item @click="swiper.slideTo(2, 0, false)">Клиенты</b-nav-item>
                                     <b-nav-item @click="swiper.slideTo(3, 0, false)">Контакты</b-nav-item>
                                     <b-nav-item @click="pusherTop('/blog')">Блог</b-nav-item>
                                 </b-navbar-nav>
@@ -178,14 +179,16 @@
                                         </div>
                                     </span>
                                 </div>
-                                <h1 class="my-auto">Рекламное<br> агентство</h1>
+                                <h1 class="my-auto">Cтудия производства рекламы</h1>
                                 <div class="slide-contact">
                                     <a class="link link-page" @click="pusherBottom('/season')">
                                         <i class="pointer"/>
                                         Сезонные предложения
                                     </a>
-                                    <a href="#" class="link link-mail">E: andrey@klever-studio.ru</a>
-                                    <a href="#" class="link link-phone">
+                                    <a href="mailto:andrey@klever-studio.ru" class="link link-mail">
+                                        E: andrey@klever-studio.ru
+                                    </a>
+                                    <a href="tel:+79263397547" class="link link-phone">
                                         <i class="wa"/>
                                         <i class="tg"/>
                                         T: +7 (926) 339 75 47
@@ -237,8 +240,10 @@
                                         <i class="pointer"/>
                                         О работе с нами
                                     </a>
-                                    <a href="#" class="link link-mail">E: andrey@klever-studio.ru</a>
-                                    <a href="#" class="link link-phone">
+                                    <a href="mailto:andrey@klever-studio.ru" class="link link-mail">
+                                        E: andrey@klever-studio.ru
+                                    </a>
+                                    <a href="tel:+79263397547" class="link link-phone">
                                         <i class="wa"/>
                                         <i class="tg"/>
                                         T: +7 (926) 339 75 47
@@ -250,16 +255,39 @@
                                 <h4>
                                     Мы ценим наших клиентов и благодарны им за выбор работать с нами
                                 </h4>
-                                <div class="slide-client">
-                                    <img class="img-fluid" src="/img/client-1.png">
-                                </div>
+                                <swiper ref="slideClient"
+                                        :options="slideClientOptions"
+                                        class="slide-client"
+                                >
+                                    <swiper-slide>
+                                        <img class="img-fluid" src="/img/client-1.png">
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <img class="img-fluid" src="/img/client-1.png">
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <img class="img-fluid" src="/img/client-1.png">
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <img class="img-fluid" src="/img/client-1.png">
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <img class="img-fluid" src="/img/client-1.png">
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <img class="img-fluid" src="/img/client-1.png">
+                                    </swiper-slide>
+                                    <div class="slide-client-pagination" slot="pagination"></div>
+                                </swiper>
                                 <div class="slide-contact">
                                     <a class="link link-page" @click="pusherBottom('/portfolio/for-clients')">
                                         <i class="pointer"/>
                                         Портфолио
                                     </a>
-                                    <a href="#" class="link link-mail">E: andrey@klever-studio.ru</a>
-                                    <a href="#" class="link link-phone">
+                                    <a href="mailto:andrey@klever-studio.ru" class="link link-mail">
+                                        E: andrey@klever-studio.ru
+                                    </a>
+                                    <a href="tel:+79263397547" class="link link-phone">
                                         <i class="wa"/>
                                         <i class="tg"/>
                                         T: +7 (926) 339 75 47
@@ -281,18 +309,20 @@
                                         <div class="circle circle-white circle-80">
                                             <i class="ico ico-phone m-auto"/>
                                         </div>
-                                        <div class="text">
+                                        <a href="tel:+79263397547" class="text">
                                             +7 (926) 339 75 47
-                                        </div>
+                                        </a>
                                     </a>
                                 </div>
                                 <div class="slide-contact">
-                                    <a class="link link-page" @click="pusherBottom('/')">
+                                    <a class="link link-page" @click="showMap">
                                         <i class="pointer"/>
                                         Карта
                                     </a>
-                                    <a href="#" class="link link-mail">E: andrey@klever-studio.ru</a>
-                                    <a href="#" class="link link-phone">
+                                    <a href="mailto:andrey@klever-studio.ru" class="link link-mail">
+                                        E: andrey@klever-studio.ru
+                                    </a>
+                                    <a href="tel:+79263397547" class="link link-phone">
                                         <i class="wa"/>
                                         <i class="tg"/>
                                         T: +7 (926) 339 75 47
@@ -306,6 +336,9 @@
                     </b-col>
                 </b-row>
             </div>
+        </div>
+        <div class="iframe">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1lIJaYLf3myoMBkbgt0i58B2J8U22QxsM"></iframe>
         </div>
     </div>
 </template>
@@ -352,6 +385,19 @@
                         prevEl: '.swiper-button-prev'
                     }
                 },
+                slideClientOptions: {
+                    observer: true,
+                    observeParents: true,
+                    slidesPerView: 3,
+                    autoplay: {
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.slide-client-pagination',
+                        clickable: true
+                    }
+                },
                 currentSlideNum: 0,
             }
         },
@@ -374,6 +420,8 @@
         },
         methods: {
             sliderClicked() {
+                this.$refs.pageMain.classList.remove('iframe-show');
+
                 const pageNum = this.swiper.realIndex; // получаем активный слайд
 
                 if (this.needForChangeRoute) {
@@ -393,6 +441,9 @@
                     this.$refs.headerSlider.className = '';
                     this.$refs.headerSlider.classList.add('page-contacts');
                 }
+            },
+            showMap() {
+                this.$refs.pageMain.classList.toggle('iframe-show');
             },
             onwheel(ev) {
                 const deltaY = ev.deltaY;
@@ -427,6 +478,14 @@
                             }
                             break;
                         case 3:
+                            if (this.$route.name == 'main-contacts') {
+                                if (deltaY > 0) {
+                                    this.$refs.pageMain.classList.add('iframe-show');
+                                }
+                                if (deltaY < 0) {
+                                    this.$refs.pageMain.classList.remove('iframe-show');
+                                }
+                            }
                             break;
                         default:
                             break;
@@ -456,15 +515,27 @@
 <style lang="scss">
     @import "./src/scss/style";
 
+
     .bg-green {
         overflow: hidden;
         @include _991 {
             overflow: auto;
         }
+
+        .iframe {
+            width: 100vw;
+            height: 50vh;
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+        }
     }
 
     .page {
         background: url("/img/blob.png") no-repeat right 0 bottom 0;
+        transition: all .3s ease-in-out;
         @include _1170 {
             .link {
                 @include _991 {
@@ -517,8 +588,13 @@
             @include _600 {
                 .swiper-container {
                     height: auto;
+
                 }
             }
+        }
+
+        &.iframe-show {
+            margin: -50vh 0 0 0;
         }
 
         &-item {
@@ -548,22 +624,60 @@
                 }
             }
 
+            &.item_3 {
+                .slide-client {
+                    margin: auto 0;
+                    padding: 0;
+                    height: 20%;
+                    max-width: 50%;
+
+                    .swiper-slide {
+                        width: 25%;
+                    }
+
+                    .slide-client-pagination {
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        z-index: 20;
+
+                        .swiper-pagination-bullet {
+                            width: 6px;
+                            height: 6px;
+                            background: $color-black;
+                            opacity: 0.2;
+                            margin: 0 24px 0 0;
+                            transition: all .3s ease-in-out;
+
+                            &:hover {
+                                opacity: 0.5;
+                            }
+
+                            &-active {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+
         }
 
         &-main {
             height: 100%;
             overflow-x: hidden;
             background: url("/img/slide-1.png") no-repeat right 0 bottom 0;
+            background-size: 40%;
             @include _600 {
                 height: auto;
             }
-
         }
 
         &-about {
             height: 100%;
             overflow-x: hidden;
-            background: url("/img/slide-2.png") no-repeat right 0 bottom 0;
+            background: url("/img/slide-2.png") no-repeat right 20px bottom 0;
+            background-size: 40%;
             @include _600 {
                 height: auto;
             }
@@ -573,6 +687,7 @@
             height: 100%;
             overflow-x: hidden;
             background: url("/img/slide-3.png") no-repeat right 0 bottom 0;
+            background-size: 50%;
             @include _600 {
                 height: auto;
             }
@@ -581,7 +696,8 @@
         &-contacts {
             height: 100%;
             overflow-x: hidden;
-            background: url("/img/slide-4.png") no-repeat right 0 bottom 0;
+            background: url("/img/slide-4.png") no-repeat right 30px bottom 0;
+            background-size: 38%;
             @include _600 {
                 height: auto;
             }
