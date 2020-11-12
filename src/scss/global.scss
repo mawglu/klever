@@ -548,7 +548,6 @@ html {
   }
 
 
-
   .footer {
     position: relative;
     display: flex;
@@ -868,7 +867,7 @@ html {
 
         .left-menu {
           top: 23%;
-          right: 60px;
+          left: 60px;
           bottom: 0;
           @include _1170 {
             top: 155px;

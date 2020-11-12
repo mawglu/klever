@@ -240,13 +240,33 @@
         left: 0;
         margin: 0 0 0 -50vw;
         z-index: -2;
-        transition: all .3s ease-in-out;
+        transition: all .2s ease-in-out;
+
+        .left-menu {
+            opacity: 0;
+
+            .menu-item {
+                &:nth-child(1) {
+                    margin: 0 0 23px 0;
+                }
+
+                &:nth-child(2) {
+                    margin: 0 0 25px 0;
+                }
+            }
+        }
 
         &.active {
+            top: 0;
             width: 100%;
             z-index: 10;
             left: 0;
             margin: 0;
+
+            .left-menu {
+                opacity: 1;
+            }
+
         }
 
         .modal-body {

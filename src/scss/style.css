@@ -961,7 +961,7 @@ html .menu-modal .modal-dialog .modal-content {
 }
 html .menu-modal .modal-dialog .modal-content .left-menu {
   top: 23%;
-  right: 60px;
+  left: 60px;
   bottom: 0;
 }
 @media (max-width: 1170px) {
@@ -1979,6 +1979,36 @@ html .page-content .left-menu--season .social {
 @media (max-width: 767px) and (max-width: 480px) {
   html .page-content .left-menu--season .social {
     top: 0;
+  }
+}
+html .page-content-services {
+  padding: 170px 0 0 0;
+}
+@media (max-width: 1170px) {
+  html .page-content-services {
+    padding: 0;
+  }
+}
+html .page-content-services .left-menu {
+  position: fixed;
+}
+html .page-content-services .left-menu .menu-modal {
+  position: fixed;
+  visibility: hidden;
+}
+html .page-content-services .left-menu .menu-modal.active {
+  visibility: inherit;
+}
+html .page-content-services .navbar {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+}
+@media (max-width: 1170px) {
+  html .page-content-services .navbar {
+    position: static;
   }
 }
 html .page-content-services h2 {

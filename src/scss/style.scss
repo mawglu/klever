@@ -2,6 +2,7 @@
 
 
 html {
+
   .navbar {
     padding: 37px 118px 70px 55px;
     @include _1170 {
@@ -850,8 +851,35 @@ html {
     }
 
     &-services {
-      //background:  url("/img/services-bg.png") no-repeat right;
-      //background-size: cover;
+      padding: 170px 0 0 0;
+      @include _1170 {
+        padding: 0;
+      }
+
+      .left-menu {
+        position: fixed;
+
+        .menu-modal {
+          position: fixed;
+          visibility: hidden;
+
+
+          &.active {
+            visibility: inherit;
+          }
+        }
+      }
+
+      .navbar {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 1000;
+        @include _1170 {
+          position: static;
+        }
+      }
 
       h2 {
         max-width: 55%;
