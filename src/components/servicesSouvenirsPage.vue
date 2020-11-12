@@ -4,7 +4,7 @@
             <div class="bg-pic-wrap">
                 <div class="bg-pic"></div>
             </div>
-            <right-menu/>
+            <left-menu/>
             <div class="position-relative" style="z-index: 10">
                 <b-row>
                     <b-col cols="12">
@@ -218,7 +218,7 @@
             Swiper,
             SwiperSlide,
             mainFooter: () => import(/* webpackChunkName: "main-footer" */'./mainFooter'),
-            rightMenu: () => import(/* webpackChunkName: "right-menu" */'./rightMenu')
+            leftMenu: () => import(/* webpackChunkName: "left-menu" */'./leftMenu')
         },
         swiper() {
             return this.$refs.serviceSwiper.$swiper; // инициализируем слайдер

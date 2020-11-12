@@ -1,7 +1,7 @@
 <template>
     <div class="bg-black h-vh-100 w-vw-100" @wheel="onwheel">
         <div class="page-content container-fluid">
-            <right-menu class="right-menu--season"/>
+            <left-menu class="left-menu--season"/>
             <b-row>
                 <b-col cols="12">
                     <b-navbar variant="faded" toggleable="lg" type="light">
@@ -121,7 +121,7 @@
             }
         },
         components: {
-            rightMenu: () => import(/* webpackChunkName: "right-menu" */'./rightMenu')
+            leftMenu: () => import(/* webpackChunkName: "left-menu" */'./leftMenu')
         },
         methods: {
             onwheel(ev) {

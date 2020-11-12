@@ -2,7 +2,7 @@
     <div @wheel="onwheel" class="bg-black" ref="seasonSliderRoot">
         <div class="page-content">
             <div class="container-fluid">
-                <right-menu class="right-menu--season"/>
+                <left-menu class="left-menu--season"/>
                 <b-row>
                     <b-col cols="12">
                         <b-navbar variant="faded" toggleable="lg" type="light">
@@ -157,7 +157,7 @@
             }
         },
         components: {
-            rightMenu: () => import(/* webpackChunkName: "right-menu" */'./rightMenu'),
+            leftMenu: () => import(/* webpackChunkName: "left-menu" */'./leftMenu'),
             mainFooter: () => import(/* webpackChunkName: "main-footer" */'./mainFooter'),
         },
         mounted() {

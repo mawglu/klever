@@ -1,7 +1,7 @@
 <template>
     <div class="bg-black h-vh-100 w-vw-100" @wheel="onwheel" ref="topTrigger">
         <div class="page-content flipper-container-fluid">
-            <right-menu/>
+            <left-menu/>
             <b-row>
                 <b-col cols="12">
                     <b-navbar variant="faded" toggleable="lg" type="light">
@@ -556,7 +556,7 @@
             Swiper,
             SwiperSlide,
             mainFooter: () => import(/* webpackChunkName: "main-footer" */'./mainFooter'),
-            rightMenu: () => import(/* webpackChunkName: "right-menu" */'./rightMenu'),
+            leftMenu: () => import(/* webpackChunkName: "left-menu" */'./leftMenu'),
         },
         methods: {
             onwheel(ev) {

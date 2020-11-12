@@ -545,7 +545,7 @@ html .arrow-after-blue:after {
     top: 0;
   }
 }
-html .right-menu {
+html .left-menu {
   height: 100%;
   max-width: 60px;
   width: auto;
@@ -557,27 +557,27 @@ html .right-menu {
   z-index: 1000;
 }
 @media (max-width: 1170px) {
-  html .right-menu {
+  html .left-menu {
     left: 15px;
   }
 }
-html .right-menu .menu-item {
+html .left-menu .menu-item {
   margin: 0 auto 30px auto;
 }
 @media (max-width: 1024px) {
-  html .right-menu .menu-item svg {
+  html .left-menu .menu-item svg {
     width: 30px;
     height: 30px;
   }
 }
-html .right-menu .sharing {
+html .left-menu .sharing {
   margin: auto auto 0 auto;
   cursor: pointer;
 }
-html .right-menu .sharing.active .circle {
+html .left-menu .sharing.active .circle {
   background: #FFFFFF;
 }
-html .right-menu .sharing.active .circle svg {
+html .left-menu .sharing.active .circle svg {
   filter: invert(100%);
 }
 html .swiper-pagination-bullet {
@@ -959,24 +959,24 @@ html .menu-modal .modal-dialog .modal-content {
   border-radius: 0;
   background: linear-gradient(194.04deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%), #141925;
 }
-html .menu-modal .modal-dialog .modal-content .right-menu {
+html .menu-modal .modal-dialog .modal-content .left-menu {
   top: 23%;
   right: 60px;
   bottom: 0;
 }
 @media (max-width: 1170px) {
-  html .menu-modal .modal-dialog .modal-content .right-menu {
+  html .menu-modal .modal-dialog .modal-content .left-menu {
     top: 155px;
   }
 }
-html .menu-modal .modal-dialog .modal-content .right-menu .menu-item {
+html .menu-modal .modal-dialog .modal-content .left-menu .menu-item {
   display: flex;
   cursor: pointer;
 }
-html .menu-modal .modal-dialog .modal-content .right-menu .menu-item svg {
+html .menu-modal .modal-dialog .modal-content .left-menu .menu-item svg {
   margin: auto 20px auto 0;
 }
-html .menu-modal .modal-dialog .modal-content .right-menu .menu-item span {
+html .menu-modal .modal-dialog .modal-content .left-menu .menu-item span {
   font-family: Gilroy, sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -1917,67 +1917,67 @@ html .contact-block-item .text {
     font-weight: bolder;
   }
 }
-html .page-content .right-menu {
+html .page-content .left-menu {
   max-height: 65vh;
   top: 23%;
 }
 @media (max-width: 1170px) {
-  html .page-content .right-menu {
+  html .page-content .left-menu {
     top: 155px;
   }
 }
 @media (max-width: 1170px) and (max-width: 600px) {
-  html .page-content .right-menu {
+  html .page-content .left-menu {
     max-height: 75%;
   }
 }
-html .page-content .right-menu .social {
+html .page-content .left-menu .social {
   left: 0;
   top: 50%;
 }
-html .page-content .right-menu .social-wrap {
+html .page-content .left-menu .social-wrap {
   margin: auto auto 0 auto;
 }
-html .page-content .right-menu .social-item {
+html .page-content .left-menu .social-item {
   cursor: pointer;
   display: flex;
   width: 40px;
   height: 40px;
   margin: 0 auto 10px auto;
 }
-html .page-content .right-menu--season {
+html .page-content .left-menu--season {
   max-height: 63vh;
   position: fixed;
   top: 23%;
 }
 @media (max-width: 991px) {
-  html .page-content .right-menu--season {
+  html .page-content .left-menu--season {
     max-height: 100%;
   }
 }
 @media (max-width: 991px) and (max-width: 600px) {
-  html .page-content .right-menu--season {
+  html .page-content .left-menu--season {
     max-height: 75%;
   }
 }
 @media (max-width: 991px) and (max-width: 600px) and (max-width: 480px) {
-  html .page-content .right-menu--season {
+  html .page-content .left-menu--season {
     top: 20vh;
   }
 }
-html .page-content .right-menu--season .social {
+html .page-content .left-menu--season .social {
   left: 0;
   top: -10%;
   position: relative;
 }
 @media (max-width: 767px) {
-  html .page-content .right-menu--season .social {
+  html .page-content .left-menu--season .social {
     flex-direction: column;
     padding: 0;
   }
 }
 @media (max-width: 767px) and (max-width: 480px) {
-  html .page-content .right-menu--season .social {
+  html .page-content .left-menu--season .social {
     top: 0;
   }
 }

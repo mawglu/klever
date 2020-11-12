@@ -315,7 +315,7 @@
                                     </a>
                                 </div>
                                 <div class="slide-contact">
-                                    <a class="link link-page" @click="showMap">
+                                    <a class="link link-page map-btn" @click="showMap">
                                         <i class="pointer"/>
                                         Карта
                                     </a>
@@ -598,6 +598,21 @@
 
         &.iframe-show {
             margin: -50vh 0 0 0;
+
+            .map-btn {
+                background: transparent;
+                border: 1px solid $color-black;
+                color: $color-black;
+                transition: all .3s ease-in-out;
+
+                i {
+                    transform: rotate(180deg);
+                    filter: invert(100%);
+                }
+                &:hover {
+                    color: $color-black;
+                }
+            }
         }
 
         &-item {

@@ -61,7 +61,7 @@
         margin-top: -100vh;
         z-index: 2000;
 
-        .right-menu {
+        .left-menu {
             opacity: 0;
         }
 
